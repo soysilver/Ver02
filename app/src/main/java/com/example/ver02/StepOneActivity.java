@@ -115,6 +115,7 @@ public class StepOneActivity extends Activity {
                         System.out.println(right.getTime());
                         right.putArray();
                         right.putSound(time_r1);
+                        right.setStatus("touch");
                         right.writeFile1();
                         disp_num++;// right.getArrNum()%20;
                         count.setText(Integer.toString(disp_num));

@@ -6,7 +6,6 @@ import android.os.Environment;
 import com.opencsv.CSVWriter;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -27,7 +26,7 @@ public class Action extends Activity {
     int time = getTime();
 
     //계산용
-    int status= 0;
+    int stageID = 0;
     int setID = 0;
     int BPMset = 0;
     int[] arr = new int[40];
@@ -37,6 +36,7 @@ public class Action extends Activity {
     int sound_num = 0;
     int Sum = 0;
     int i = 0;
+    String status="fail";
 
     //혹시 작동 안될 때
     int Age=900, Hand = 3;
@@ -89,7 +89,7 @@ public class Action extends Activity {
         this.Age = Age;
         this.Gender = Gender;
         this.Hand = Hand;
-        this.status = status;
+        this.stageID = status;
         this.setID = setID;
         if(BPMset==80){
             this.BPMset = 1;
@@ -168,7 +168,7 @@ public class Action extends Activity {
             FileWriter first = new FileWriter(file, true);
             CSVWriter writer = new CSVWriter(first);
 
-            String[] entries1 = {dateFormat.format(date), Integer.toString(time1) , ID, Integer.toString(Age), Gender, Integer.toString(Hand), String.valueOf(status),String.valueOf(setID), String.valueOf(BPMset), Integer.toString(sound_num), Integer.toString(arr_num), Integer.toString(arr[arr_num-1]), Float.toString(abx), Float.toString(y), String.valueOf(getSum()),String.valueOf(getMean()),String.valueOf(getSortedSum()), String.valueOf(time1-Sound[arr_num -1]) };  // 3
+            String[] entries1 = {dateFormat.format(date), Integer.toString(time1) , ID, Integer.toString(Age), Gender, Integer.toString(Hand), String.valueOf(stageID),String.valueOf(setID), String.valueOf(BPMset), status, Integer.toString(sound_num), Integer.toString(arr_num), Integer.toString(arr[arr_num-1]), Float.toString(abx), Float.toString(y), String.valueOf(getSum()),String.valueOf(getMean()),String.valueOf(getSortedSum()), String.valueOf(time1-Sound[arr_num -1]) };  // 3
             writer.writeNext(entries1);
 
             writer.close();
@@ -238,5 +238,9 @@ public class Action extends Activity {
 
     public void setSetID(int setID) {
         this.setID = setID;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

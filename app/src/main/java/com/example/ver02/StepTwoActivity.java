@@ -119,6 +119,7 @@ public class StepTwoActivity extends Activity implements Runnable {
                         System.out.println(right.getTime());
                         right.setHand(1);
                         right.putArray();
+                        right.setStatus("touch");
                         right.writeFile1();
                         disp_num++;// right.getArrNum()%20;
                         count.setText(Integer.toString(disp_num));
@@ -169,6 +170,7 @@ public class StepTwoActivity extends Activity implements Runnable {
         try {
             while(true) {
                 right.putSound((int)System.currentTimeMillis());
+                right.setStatus("sound");
                 mSoundPool.play(mSoundId2, 1, 1, 5, 0, 1);
                 Thread.sleep(duration);
                 sound_num++;

@@ -165,6 +165,7 @@ public class StepThreeActivity extends Activity  implements Runnable {
                         System.out.println(left.getTime());
                         left.setHand(1);
                         left.putArray();
+                        right.setStatus("touch");
                         left.writeFile1();
                         disp_num++;// right.getArrNum()%20;
                         count.setText(Integer.toString(disp_num));
@@ -207,6 +208,7 @@ public class StepThreeActivity extends Activity  implements Runnable {
         try {
             while(true) {
                 mSoundPool.play(mSoundId2, 1, 1, 1, 0, 1);
+                right.setStatus("sound");
                 right.putSound((int)System.currentTimeMillis());
                 Thread.sleep(duration);
                 sound_num++;
