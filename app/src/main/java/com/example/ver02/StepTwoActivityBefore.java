@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 public class StepTwoActivityBefore extends Activity {
     CountDownTimer countDownTimer;
+    int flag = 0;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,33 +22,61 @@ public class StepTwoActivityBefore extends Activity {
         Button button3 = (Button) findViewById(R.id.button3);
         Button button4 = (Button) findViewById(R.id.button4);
         Button button5 = (Button) findViewById(R.id.button5);
+        TextView T = (TextView) findViewById(R.id.textView2);
+
+
+        countDownTimer = new CountDownTimer(3000, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                int num = (int) (millisUntilFinished / 1000);
+                T.setText(Integer.toString(num + 1));
+
+            }
+
+            @Override
+            public void onFinish() {
+                startIntent(flag);
+            }
+        };
 
 
         button1.setOnClickListener(new View.OnClickListener() {
+
             public void onClick(View view) {
-                startIntent(80);
+                setFlag(120);
+                countDownTimer.start();
             }
         });
         button2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                startIntent(90);
+                setFlag(110);
+                countDownTimer.start();
+
             }
         });
         button3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                startIntent(100);
+                setFlag(100);
+                countDownTimer.start();
+
             }
         });
         button4.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                startIntent(110);
+                setFlag(90);
+                countDownTimer.start();
             }
         });
         button5.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                startIntent(120);
+                setFlag(80);
+                countDownTimer.start();
             }
         });
+    }
+
+    public void setFlag(int flag){
+        this.flag = flag;
     }
 
     public void startIntent(int a){
