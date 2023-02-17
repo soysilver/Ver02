@@ -1,0 +1,150 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/info_btn"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="90dp"
+        android:text="@string/p_info_btn"
+        app:layout_constraintBottom_toBottomOf="@+id/Hand_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/Age_text"
+        app:layout_constraintTop_toTopOf="@+id/Age_text"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/PID_text"
+        style="@style/p_info"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="320dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:text="@string/P_ID"
+        app:layout_constraintBottom_toTopOf="@+id/Gender_text"
+        app:layout_constraintEnd_toStartOf="@+id/PIDS"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/PIDS"
+        style="@style/p_info"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:text="@string/P_ID"
+        app:layout_constraintBottom_toTopOf="@+id/Gender_text"
+        app:layout_constraintEnd_toStartOf="@+id/Age_text"
+        app:layout_constraintStart_toEndOf="@+id/PID_text"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/Age_text"
+        style="@style/p_info"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="40dp"
+        android:text="@string/P_Age"
+        app:layout_constraintBottom_toTopOf="@+id/Hand_text"
+        app:layout_constraintEnd_toStartOf="@+id/AgeS"
+        app:layout_constraintStart_toEndOf="@+id/PIDS"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/AgeS"
+        style="@style/p_info"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="40dp"
+        android:text="@string/P_Age"
+        app:layout_constraintBottom_toTopOf="@+id/Hand_text"
+        app:layout_constraintEnd_toStartOf="@+id/info_btn"
+        app:layout_constraintStart_toEndOf="@+id/Age_text"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/Gender_text"
+        style="@style/p_info"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="320dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="60dp"
+        android:text="@string/P_Gender"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/GenderS"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PID_text" />
+
+    <Spinner
+        android:id="@+id/GenderS"
+        style="@style/p_info"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="60dp"
+        android:text="@string/P_Gender"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/Hand_text"
+        app:layout_constraintStart_toStartOf="@+id/Gender_text"
+        app:layout_constraintTop_toBottomOf="@+id/PID_text" />
+
+    <TextView
+        android:id="@+id/Hand_text"
+        style="@style/p_info"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="60dp"
+        android:text="@string/P_hand"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/HandS"
+        app:layout_constraintStart_toEndOf="@+id/GenderS"
+        app:layout_constraintTop_toBottomOf="@+id/Age_text" />
+
+    <Spinner
+        android:id="@+id/HandS"
+        style="@style/p_info"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="60dp"
+        android:text="@string/P_hand"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/next_btn"
+        app:layout_constraintStart_toEndOf="@+id/Hand_text"
+        app:layout_constraintTop_toBottomOf="@+id/Age_text" />
+
+    <Button
+        android:id="@+id/next_btn"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="90dp"
+        android:layout_marginBottom="60dp"
+        android:text="@string/next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/Hand_text"
+        app:layout_constraintTop_toBottomOf="@id/info_btn" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
