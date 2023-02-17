@@ -43,13 +43,13 @@ public class StepTwoActivityBefore extends Activity {
         button1.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
-                setFlag(120);
+                setFlag(80);
                 countDownTimer.start();
             }
         });
         button2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                setFlag(110);
+                setFlag(90);
                 countDownTimer.start();
 
             }
@@ -63,13 +63,13 @@ public class StepTwoActivityBefore extends Activity {
         });
         button4.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                setFlag(90);
+                setFlag(110);
                 countDownTimer.start();
             }
         });
         button5.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                setFlag(80);
+                setFlag(120);
                 countDownTimer.start();
             }
         });
