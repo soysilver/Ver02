@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         TextView PID_text = (TextView)findViewById (R.id.PID_text);
-        String[] PID = {"빨강", "주황", "노랑", "초록", "파랑", "군청", "보라", "자주"};
+        String[] PID = {"1번", "2번", "3번", "4번", "5번", "6번", "7번", "8번", "9번", "10번", "11번", "12번", "13번", "14번", "15번", "16번", "17번", "18번", "19번", "20번"};
         Spinner spinnerP = (Spinner) findViewById(R.id.PIDS);
 
         ArrayAdapter<String> adapter4 = new ArrayAdapter<String>(
