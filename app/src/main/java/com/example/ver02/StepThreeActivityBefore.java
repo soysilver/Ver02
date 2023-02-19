@@ -84,7 +84,7 @@ public class StepThreeActivityBefore extends Activity {
     }
 
     public void startIntent(int a){
-        Intent intent = new Intent(getApplicationContext(), StepTwoActivity.class);
+        Intent intent = new Intent(getApplicationContext(), StepThreeActivity.class);
         intent.putExtra("factor", a);
         intent.putExtra("loop", loop);
         startActivity(intent);

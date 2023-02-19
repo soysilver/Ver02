@@ -51,6 +51,7 @@ public class StepThreeActivity extends Activity  implements Runnable {
 
         Intent b_intent = getIntent();
         factor = b_intent.getIntExtra("factor",100);
+        loop_num = b_intent.getIntExtra("loop",loop_num);
 
         duration = 600*factor/( (GlobalVar) getApplication() ).getSum();
 
@@ -60,7 +61,7 @@ public class StepThreeActivity extends Activity  implements Runnable {
         Button button = (Button)findViewById(R.id.musicOn);
         TextView count = (TextView)findViewById(R.id.count);
         TextView loop = (TextView)findViewById(R.id.loop);
-
+        loop.setText(String.valueOf(loop_num));
 
 
         String ID = ( (GlobalVar) getApplication() ).getID();
@@ -129,6 +130,8 @@ public class StepThreeActivity extends Activity  implements Runnable {
                             loop.setText(String.valueOf(loop_num));
                             flag =1;
                             Intent intent = new Intent(getApplicationContext(), StepTwoActivityEnd.class);
+                            intent.putExtra("loop", loop_num);
+                            intent.putExtra("factor", factor);
                             startActivity(intent);
                         }
 
@@ -175,7 +178,7 @@ public class StepThreeActivity extends Activity  implements Runnable {
                             disp_num=0;
                             loop.setText(String.valueOf(loop_num));
                             flag =1;
-                            Intent intent = new Intent(getApplicationContext(), StepTwoActivityEnd.class);
+                            Intent intent = new Intent(getApplicationContext(), StepThreeActivityEnd.class);
                             startActivity(intent);
                         }
 
@@ -207,10 +210,14 @@ public class StepThreeActivity extends Activity  implements Runnable {
     @Override
     public void run() {
         try {
+            right.putSound((int)System.currentTimeMillis(), duration);
+            left.putSound((int)System.currentTimeMillis(), duration);
             while(true) {
                 mSoundPool.play(mSoundId2, 1, 1, 1, 0, 1);
                 right.setStatus("sound");
-                right.putSound((int)System.currentTimeMillis());
+
+                right.incSound();
+                left.incSound();
                 right.writeFile1();
                 Thread.sleep(duration);
                 sound_num++;

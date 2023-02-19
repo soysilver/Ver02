@@ -210,6 +210,15 @@ public class Action extends Activity {
         }
         sound_num++;
     }
+
+    public void putSound(int a, int b){
+        for (int  i=0; i<40; i++){
+            Sound[i]=a+b*i;
+        }
+    }
+    public void incSound(){
+        sound_num++;
+    }
     public void initArr(){
         arr_num = 0;
     }
