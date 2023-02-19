@@ -31,6 +31,7 @@ public class Action extends Activity {
     int BPMset = 0;
     int[] arr = new int[40];
     int[] Sound = new int[40];
+    int[] Touch = new int[40];
     int[] Sorted = new int[40];
     int arr_num = 0;
     int sound_num = 0;
@@ -55,6 +56,7 @@ public class Action extends Activity {
 
     void setTime1(int Time1) {
         this.time1 = Time1;
+        Touch[arr_num]=time1;
     }
     void setTime2(int Time2) {
         this.time2 = Time2;
@@ -143,7 +145,7 @@ public class Action extends Activity {
             if (!file.exists()) {
                 file.createNewFile();
             }
-            FileWriter first = new FileWriter(file, true);
+            FileWriter first = new FileWriter(file, false);
             //BufferedWriter writer = new BufferedWriter(first);
             CSVWriter writer = new CSVWriter(first);
             String[] entries = "Date#Timestamp#PID#Age#Gender#Handness#StageID#SetID#BPM_set#Event#SignalID#TrialID#x#y#BPM_part_avg#BPM_part_median#BPM_part_middle#Gap".split("#");  // 1
@@ -205,14 +207,25 @@ public class Action extends Activity {
             }
             FileWriter first = new FileWriter(file, true);
             CSVWriter writer = new CSVWriter(first);
+            if(sound_num<40){
+                String[] entries1 = {dateFormat.format(date), Integer.toString(cTime) , ID, Integer.toString(Age), Gender, Integer.toString(Hand), String.valueOf(stageID),String.valueOf(setID),
+                        String.valueOf(BPMset), status,
+                        Integer.toString(sound_num),
+                        Integer.toString(arr_num),
+                        Integer.toString(0), Float.toString(0), Float.toString(0),
+                        String.valueOf(0),String.valueOf(0),String.valueOf(0), String.valueOf(cTime - Touch[sound_num]) };  // 3
+                writer.writeNext(entries1);
+            }
+            else{
+                String[] entries1 = {dateFormat.format(date), Integer.toString(cTime) , ID, Integer.toString(Age), Gender, Integer.toString(Hand), String.valueOf(stageID),String.valueOf(setID),
+                        String.valueOf(BPMset), status,
+                        Integer.toString(sound_num),
+                        Integer.toString(arr_num),
+                        Integer.toString(0), Float.toString(0), Float.toString(0),
+                        String.valueOf(0),String.valueOf(0),String.valueOf(0), String.valueOf(cTime - Touch[sound_num]) };  // 3
+                writer.writeNext(entries1);
+            }
 
-            String[] entries1 = {dateFormat.format(date), Integer.toString(cTime) , ID, Integer.toString(Age), Gender, Integer.toString(Hand), String.valueOf(stageID),String.valueOf(setID),
-                    String.valueOf(BPMset), status,
-                    Integer.toString(sound_num),
-                    Integer.toString(arr_num),
-                    Integer.toString(0), Float.toString(0), Float.toString(0),
-                    String.valueOf(0),String.valueOf(0),String.valueOf(0), String.valueOf(0) };  // 3
-            writer.writeNext(entries1);
             writer.close();
 
         } catch (IOException e) {
@@ -235,6 +248,12 @@ public class Action extends Activity {
             Sound[sound_num]=a;
         }
         sound_num++;
+    }
+
+    public void initSound(int a){
+        for (int  i=0; i<40; i++){
+            Sound[i]=a;
+        }
     }
 
     public void putSound(int a, int b){

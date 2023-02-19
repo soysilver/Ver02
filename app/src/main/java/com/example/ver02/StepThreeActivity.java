@@ -239,16 +239,16 @@ public class StepThreeActivity extends Activity  implements Runnable {
                     mSoundPool.play(mSoundId2, 1, 1, 1, 0, 1);
                     left.putSound((int)System.currentTimeMillis());
                     left.setStatus("sound");
-                    left.incSound();
-                    left.writeFile1();
+                    //left.incSound();
+                    left.writeSound((int)System.currentTimeMillis());
                     sound_num++;
                     if (flag == 1) break;
                     Thread.sleep(duration);
                     mSoundPool.play(mSoundId2, 1, 1, 1, 0, 1);
                     right.setStatus("sound");
                     right.putSound((int)System.currentTimeMillis());
-                    right.incSound();
-                    right.writeFile1();
+                   // right.incSound();
+                    right.writeSound((int)System.currentTimeMillis());
                     sound_num++;
                     if (flag == 1) break;
                 }

@@ -84,9 +84,6 @@ public class StepTwoActivity extends Activity implements Runnable {
         mSoundId2 = mSoundPool.load(getApplicationContext(), R.raw.beep, 5);
 
 
-        Thread th = new Thread(StepTwoActivity.this);
-        th.start();
-
         button.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
@@ -158,9 +155,12 @@ public class StepTwoActivity extends Activity implements Runnable {
             }
 
         });
-
+        Thread th = new Thread(StepTwoActivity.this);
+        th.start();
 
     }
+
+
 
     int flag = 0;
     protected void onStop() {
@@ -170,15 +170,18 @@ public class StepTwoActivity extends Activity implements Runnable {
 
     @Override
     public void run() {
-        right.putSound((int)System.currentTimeMillis(),duration);
+        //right.putSound((int)System.currentTimeMillis(),duration);
         try {
+            right.initSound((int)System.currentTimeMillis());
             while(true) {
-                right.setStatus("sound");
-                right.incSound();
                 mSoundPool.play(mSoundId2, 1, 1, 5, 0, 1);
+                right.setStatus("sound");
+          //      right.incSound();
+
+                right.putSound((int)System.currentTimeMillis());
                 right.writeSound((int)System.currentTimeMillis());
-                Thread.sleep(duration);
                 sound_num++;
+                Thread.sleep(duration);
                 if (flag == 1) break;
 
             }

@@ -16,6 +16,9 @@ public class StepOneActivityEnd extends Activity {
         setContentView(R.layout.activity_step_one_end);
         Button button = (Button) findViewById(R.id.menu_button);
         Button button2 = (Button) findViewById(R.id.return_btn);
+        Button button3 = (Button) findViewById(R.id.Sum);
+        Button button4 = (Button) findViewById(R.id.mean);
+        Button button5 = (Button) findViewById(R.id.per);
 
         Intent b_intent = getIntent();
         String ID = b_intent.getStringExtra("아이디");
@@ -23,9 +26,15 @@ public class StepOneActivityEnd extends Activity {
         String Gender = b_intent.getStringExtra("성별");
         int Hand = b_intent.getIntExtra("손",0);
         int bpm = b_intent.getIntExtra("bpm",0);
+        int sum = b_intent.getIntExtra("sum",0);
+        int mean = b_intent.getIntExtra("mean",0);
+        int per = b_intent.getIntExtra("per",0);
 
         int factor = b_intent.getIntExtra("factor",100);
 
+        button3.setText(String.valueOf(sum));
+        button4.setText(String.valueOf(mean));
+        button5.setText(String.valueOf(per));
 
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -42,6 +51,26 @@ public class StepOneActivityEnd extends Activity {
                 loop++;
                 intent.putExtra("loop", loop);
                 startActivity(intent);
+            }
+        });
+
+        button3.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+
+                ( (GlobalVar) getApplication() ).setSum(sum);
+            }
+        });
+
+        button4.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+
+                ( (GlobalVar) getApplication() ).setSum(mean);
+            }
+        });
+
+        button5.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                ( (GlobalVar) getApplication() ).setSum(mean);
             }
         });
 

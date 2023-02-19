@@ -126,6 +126,9 @@ public class StepOneActivity extends Activity {
                             ( (GlobalVar) getApplication() ).setSum(right.getSum());
                             Intent intent = new Intent(getApplicationContext(), StepOneActivityEnd.class);
                             intent.putExtra("loop", setID);
+                            intent.putExtra("sum", right.getSum());
+                            intent.putExtra("mean", right.getMean());
+                            intent.putExtra("per", right.getSortedSum());
                             startActivity(intent);
                         }
 
