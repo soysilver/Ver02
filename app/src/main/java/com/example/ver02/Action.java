@@ -168,8 +168,24 @@ public class Action extends Activity {
             FileWriter first = new FileWriter(file, true);
             CSVWriter writer = new CSVWriter(first);
 
-            String[] entries1 = {dateFormat.format(date), Integer.toString(time1) , ID, Integer.toString(Age), Gender, Integer.toString(Hand), String.valueOf(stageID),String.valueOf(setID), String.valueOf(BPMset), status, Integer.toString(sound_num), Integer.toString(arr_num), Integer.toString(arr[arr_num-1]), Float.toString(abx), Float.toString(y), String.valueOf(getSum()),String.valueOf(getMean()),String.valueOf(getSortedSum()), String.valueOf(time1-Sound[arr_num -1]) };  // 3
-            writer.writeNext(entries1);
+            if (arr_num == 0){
+                String[] entries1 = {dateFormat.format(date), Integer.toString(time1) , ID, Integer.toString(Age), Gender, Integer.toString(Hand), String.valueOf(stageID),String.valueOf(setID),
+                        String.valueOf(BPMset), status,
+                        Integer.toString(sound_num),
+                        Integer.toString(arr_num),
+                        Integer.toString(0), Float.toString(abx), Float.toString(y),
+                        String.valueOf(0),String.valueOf(0),String.valueOf(0), String.valueOf(0) };  // 3
+                writer.writeNext(entries1);
+            }
+            else{
+                String[] entries1 = {dateFormat.format(date), Integer.toString(time1) , ID, Integer.toString(Age), Gender, Integer.toString(Hand), String.valueOf(stageID),String.valueOf(setID),
+                        String.valueOf(BPMset), status,
+                        Integer.toString(sound_num),
+                        Integer.toString(arr_num),
+                        Integer.toString(arr[arr_num-1]), Float.toString(abx), Float.toString(y),
+                        String.valueOf(getSum()),String.valueOf(getMean()),String.valueOf(getSortedSum()), String.valueOf(time1-Sound[arr_num -1]) };  // 3
+                writer.writeNext(entries1);
+            }
 
             writer.close();
 
@@ -189,7 +205,9 @@ public class Action extends Activity {
     }
 
     public void putSound(int a){
-        Sound[sound_num]=a;
+        if(sound_num<40){
+            Sound[sound_num]=a;
+        }
         sound_num++;
     }
     public void initArr(){

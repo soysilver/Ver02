@@ -10,16 +10,18 @@ import android.widget.Button;
 
 
 public class StepTwoActivityEnd extends Activity {
+    int loop;
+    int factor;
 
-    Intent b_intent = getIntent();
     protected void onCreate(Bundle savedInstanceState) {
+        Intent b_intent = getIntent();
+        loop = b_intent.getIntExtra("loop",200);
+        factor = b_intent.getIntExtra("factor",100);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_step_two_end);
         Button button = (Button) findViewById(R.id.menu_button);
         Button button2 = (Button) findViewById(R.id.return_btn);
-
-
-      //
 
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -31,21 +33,23 @@ public class StepTwoActivityEnd extends Activity {
 
         button2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-
-                int loop = b_intent.getIntExtra("loop",200);
-
+                ads();
                 Log.e("eLoop","int"+loop);
                 Log.v("iLoop","_____in____"+loop);
-                int factor = b_intent.getIntExtra("factor",100);
 
-                Intent intent = new Intent(getApplicationContext(), StepTwoActivity.class);
+                Intent intent = new Intent(getApplicationContext(), StepTwoActivityBefore.class);
                 intent.putExtra("factor", factor);
                 loop++;
+                Log.v("iLoop","_____in____"+loop);
                 intent.putExtra("loop", loop);
                 startActivity(intent);
             }
         });
+
     }
 
+    public void ads(){
+
+    }
 }
 

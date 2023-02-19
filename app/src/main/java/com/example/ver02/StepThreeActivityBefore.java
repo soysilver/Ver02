@@ -12,6 +12,7 @@ import android.widget.TextView;
 public class StepThreeActivityBefore extends Activity {
     CountDownTimer countDownTimer;
     int flag = 0;
+    int loop = 0;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +26,8 @@ public class StepThreeActivityBefore extends Activity {
 
         TextView T = (TextView) findViewById(R.id.textView2);
 
+        Intent b_intent = getIntent();
+        loop = b_intent.getIntExtra("loop",loop);
 
         countDownTimer = new CountDownTimer(3000, 1000) {
             @Override
@@ -83,6 +86,7 @@ public class StepThreeActivityBefore extends Activity {
     public void startIntent(int a){
         Intent intent = new Intent(getApplicationContext(), StepTwoActivity.class);
         intent.putExtra("factor", a);
+        intent.putExtra("loop", loop);
         startActivity(intent);
     }
 

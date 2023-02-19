@@ -51,7 +51,9 @@ public class StepTwoActivity extends Activity implements Runnable {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_step_one_ing);
-
+        Intent b_intent = getIntent();
+        loop_num = b_intent.getIntExtra("loop",loop_num);
+        factor = b_intent.getIntExtra("factor",100);
 
         duration = 600*factor/( (GlobalVar) getApplication() ).getSum();
 
@@ -60,6 +62,7 @@ public class StepTwoActivity extends Activity implements Runnable {
         Button button = (Button)findViewById(R.id.musicOn);
         TextView count = (TextView)findViewById(R.id.count);
         TextView loop = (TextView)findViewById(R.id.loop);
+        loop.setText(String.valueOf(loop_num));
 
         String ID = ( (GlobalVar) getApplication() ).getID();
         int Age = ( (GlobalVar) getApplication() ).getAge();
@@ -172,6 +175,7 @@ public class StepTwoActivity extends Activity implements Runnable {
                 right.putSound((int)System.currentTimeMillis());
                 right.setStatus("sound");
                 mSoundPool.play(mSoundId2, 1, 1, 5, 0, 1);
+                right.writeFile1();
                 Thread.sleep(duration);
                 sound_num++;
                 if (flag == 1) break;

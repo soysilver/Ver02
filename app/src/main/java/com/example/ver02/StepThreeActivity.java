@@ -119,6 +119,7 @@ public class StepThreeActivity extends Activity  implements Runnable {
                         System.out.println(right.getTime());
                         right.setHand(1);
                         right.putArray();
+                        right.setStatus("touch");
                         right.writeFile1();
                         disp_num++;// right.getArrNum()%20;
                         count.setText(Integer.toString(disp_num));
@@ -165,7 +166,7 @@ public class StepThreeActivity extends Activity  implements Runnable {
                         System.out.println(left.getTime());
                         left.setHand(1);
                         left.putArray();
-                        right.setStatus("touch");
+                        left.setStatus("touch");
                         left.writeFile1();
                         disp_num++;// right.getArrNum()%20;
                         count.setText(Integer.toString(disp_num));
@@ -210,6 +211,7 @@ public class StepThreeActivity extends Activity  implements Runnable {
                 mSoundPool.play(mSoundId2, 1, 1, 1, 0, 1);
                 right.setStatus("sound");
                 right.putSound((int)System.currentTimeMillis());
+                right.writeFile1();
                 Thread.sleep(duration);
                 sound_num++;
                 if (flag == 1) break;
