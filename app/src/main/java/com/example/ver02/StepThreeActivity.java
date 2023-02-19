@@ -184,6 +184,8 @@ public class StepThreeActivity extends Activity  implements Runnable {
                             loop.setText(String.valueOf(loop_num));
                             flag =1;
                             Intent intent = new Intent(getApplicationContext(), StepThreeActivityEnd.class);
+                            intent.putExtra("loop", loop_num);
+                            intent.putExtra("factor", factor);
                             startActivity(intent);
                         }
 
@@ -236,14 +238,15 @@ public class StepThreeActivity extends Activity  implements Runnable {
                 }
             }else if(Hand == 0){
                 while(true) {
+                    if (flag == 1) break;
                     mSoundPool.play(mSoundId2, 1, 1, 1, 0, 1);
                     left.putSound((int)System.currentTimeMillis());
                     left.setStatus("sound");
                     //left.incSound();
                     left.writeSound((int)System.currentTimeMillis());
                     sound_num++;
-                    if (flag == 1) break;
                     Thread.sleep(duration);
+                    if (flag == 1) break;
                     mSoundPool.play(mSoundId2, 1, 1, 1, 0, 1);
                     right.setStatus("sound");
                     right.putSound((int)System.currentTimeMillis());

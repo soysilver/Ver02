@@ -17,7 +17,7 @@ public class StepThreeActivityEnd extends Activity {
         factor = b_intent.getIntExtra("factor",100);
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_step_two_end);
+        setContentView(R.layout.activity_step_three_end);
         Button button = (Button) findViewById(R.id.menu_button);
         Button button2 = (Button) findViewById(R.id.return_btn);
 
