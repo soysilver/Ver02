@@ -170,12 +170,13 @@ public class StepTwoActivity extends Activity implements Runnable {
 
     @Override
     public void run() {
+        right.putSound((int)System.currentTimeMillis(),duration);
         try {
             while(true) {
-                right.putSound((int)System.currentTimeMillis());
                 right.setStatus("sound");
+                right.incSound();
                 mSoundPool.play(mSoundId2, 1, 1, 5, 0, 1);
-                right.writeFile1();
+                right.writeSound((int)System.currentTimeMillis());
                 Thread.sleep(duration);
                 sound_num++;
                 if (flag == 1) break;

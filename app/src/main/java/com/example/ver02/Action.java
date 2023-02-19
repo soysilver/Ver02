@@ -194,6 +194,32 @@ public class Action extends Activity {
         }
     }
 
+    public void writeSound(int cTime) {
+        String fileTitle = "PID_timestamp_number.txt";
+        File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), fileTitle);
+        String a = file.getPath();
+        System.out.println(a);
+        try {
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+            FileWriter first = new FileWriter(file, true);
+            CSVWriter writer = new CSVWriter(first);
+
+            String[] entries1 = {dateFormat.format(date), Integer.toString(cTime) , ID, Integer.toString(Age), Gender, Integer.toString(Hand), String.valueOf(stageID),String.valueOf(setID),
+                    String.valueOf(BPMset), status,
+                    Integer.toString(sound_num),
+                    Integer.toString(arr_num),
+                    Integer.toString(0), Float.toString(0), Float.toString(0),
+                    String.valueOf(0),String.valueOf(0),String.valueOf(0), String.valueOf(0) };  // 3
+            writer.writeNext(entries1);
+            writer.close();
+
+        } catch (IOException e) {
+
+        }
+    }
+
 
     public void putArray(){
         int a = getTime();

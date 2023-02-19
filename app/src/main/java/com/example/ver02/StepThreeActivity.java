@@ -30,7 +30,7 @@ public class StepThreeActivity extends Activity  implements Runnable {
     int mSoundId2;
     int duration;
     int factor = 100;
-
+    int Hand=0;
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
@@ -67,11 +67,14 @@ public class StepThreeActivity extends Activity  implements Runnable {
         String ID = ( (GlobalVar) getApplication() ).getID();
         int Age = ( (GlobalVar) getApplication() ).getAge();
         String Gender = ( (GlobalVar) getApplication() ).getGender();
-        int Hand = ( (GlobalVar) getApplication() ).getHand();
+        Hand = ( (GlobalVar) getApplication() ).getHand();
 
         right.setIdentify(ID, Age, Gender, Hand, 3, loop_num, factor);
         int time_r2 = (int)System.currentTimeMillis();
         right.setTime2(time_r2);
+
+        left.setIdentify(ID, Age, Gender, Hand, 3, loop_num, factor);
+        left.setTime2(time_r2);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             mSoundPool = new SoundPool.Builder()
@@ -91,6 +94,7 @@ public class StepThreeActivity extends Activity  implements Runnable {
             @Override
             public boolean onLongClick(View view) {
                 right.initArr();
+                left.initArr();
                 disp_num=right.getArrNum();
                 loop_num++;
                 sound_num=0;
@@ -98,6 +102,7 @@ public class StepThreeActivity extends Activity  implements Runnable {
                 loop.setText(String.valueOf(loop_num));
                 int time_r2 = (int)System.currentTimeMillis();
                 right.setTime2(time_r2);
+                left.setTime2(time_r2);
 
                 return false;
             }
@@ -167,7 +172,7 @@ public class StepThreeActivity extends Activity  implements Runnable {
                         int time_r1 = (int)System.currentTimeMillis();
                         left.setTime1(time_r1);
                         System.out.println(left.getTime());
-                        left.setHand(1);
+                        left.setHand(0);
                         left.putArray();
                         left.setStatus("touch");
                         left.writeFile1();
@@ -210,19 +215,45 @@ public class StepThreeActivity extends Activity  implements Runnable {
     @Override
     public void run() {
         try {
-            right.putSound((int)System.currentTimeMillis(), duration);
-            left.putSound((int)System.currentTimeMillis(), duration);
-            while(true) {
-                mSoundPool.play(mSoundId2, 1, 1, 1, 0, 1);
-                right.setStatus("sound");
 
-                right.incSound();
-                left.incSound();
-                right.writeFile1();
-                Thread.sleep(duration);
-                sound_num++;
-                if (flag == 1) break;
+            if (Hand == 1){
+                while(true) {
+                    mSoundPool.play(mSoundId2, 1, 1, 1, 0, 1);
+                    right.setStatus("sound");
+                    right.putSound((int)System.currentTimeMillis());
+                    right.incSound();
+                    right.writeFile1();
+                    sound_num++;
+                    if (flag == 1) break;
+                    Thread.sleep(duration);
+                    mSoundPool.play(mSoundId2, 1, 1, 1, 0, 1);
+                    left.putSound((int)System.currentTimeMillis());
+                    left.setStatus("sound");
+                    left.incSound();
+                    left.writeFile1();
+                    sound_num++;
+                    if (flag == 1) break;
+                }
+            }else if(Hand == 0){
+                while(true) {
+                    mSoundPool.play(mSoundId2, 1, 1, 1, 0, 1);
+                    left.putSound((int)System.currentTimeMillis());
+                    left.setStatus("sound");
+                    left.incSound();
+                    left.writeFile1();
+                    sound_num++;
+                    if (flag == 1) break;
+                    Thread.sleep(duration);
+                    mSoundPool.play(mSoundId2, 1, 1, 1, 0, 1);
+                    right.setStatus("sound");
+                    right.putSound((int)System.currentTimeMillis());
+                    right.incSound();
+                    right.writeFile1();
+                    sound_num++;
+                    if (flag == 1) break;
+                }
             }
+
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
