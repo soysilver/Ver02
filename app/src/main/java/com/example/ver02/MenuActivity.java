@@ -21,6 +21,7 @@ public class MenuActivity extends AppCompatActivity {
         Button step3 = (Button)findViewById(R.id.step3);
         Button step4 = (Button)findViewById(R.id.step4);
 
+
         step1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

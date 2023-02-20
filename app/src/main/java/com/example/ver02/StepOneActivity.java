@@ -51,6 +51,7 @@ public class StepOneActivity extends Activity {
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, MODE_PRIVATE);
         View view1 = (View)findViewById(R.id.view1);
         Button button = (Button)findViewById(R.id.musicOn);
+        Button button2 = (Button)findViewById(R.id.menu);
         TextView count = (TextView)findViewById(R.id.count);
         TextView loop = (TextView)findViewById(R.id.loop);
 
@@ -148,6 +149,12 @@ public class StepOneActivity extends Activity {
 
         });
 
+        button2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
+                startActivity(intent);
+            }
+        });
         /*
         view2.setOnTouchListener(new View.OnTouchListener() {
             public boolean onTouch(View v, MotionEvent event) {

@@ -145,7 +145,7 @@ public class Action extends Activity {
             if (!file.exists()) {
                 file.createNewFile();
             }
-            FileWriter first = new FileWriter(file, false);
+            FileWriter first = new FileWriter(file, true);
             //BufferedWriter writer = new BufferedWriter(first);
             CSVWriter writer = new CSVWriter(first);
             String[] entries = "Date#Timestamp#PID#Age#Gender#Handness#StageID#SetID#BPM_set#Event#SignalID#TrialID#x#y#BPM_part_avg#BPM_part_median#BPM_part_middle#Gap".split("#");  // 1

@@ -7,7 +7,6 @@ public class GlobalVar extends Application {
     int Age = 0;
     String Gender ="Fail";
     int Hand = 0;
-
     int sum = 60;
 
     public int getSum() {

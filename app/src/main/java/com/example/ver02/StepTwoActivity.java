@@ -13,6 +13,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.app.Application;
 
 import androidx.core.app.ActivityCompat;
 
@@ -32,9 +33,8 @@ public class StepTwoActivity extends Activity implements Runnable {
     int duration;
     int factor = 100;
 
+    float vol = 1;
 
-
-    @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
         if (hasFocus) {
@@ -60,6 +60,7 @@ public class StepTwoActivity extends Activity implements Runnable {
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, MODE_PRIVATE);
         View view1 = (View)findViewById(R.id.view1);
         Button button = (Button)findViewById(R.id.musicOn);
+        Button button2 = (Button)findViewById(R.id.menu);
         TextView count = (TextView)findViewById(R.id.count);
         TextView loop = (TextView)findViewById(R.id.loop);
         loop.setText(String.valueOf(loop_num));
@@ -113,7 +114,7 @@ public class StepTwoActivity extends Activity implements Runnable {
                 right.setabX(curX);
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN: {
-                        mSoundPool.play(mSoundId, 1, 1, 1, 0, 1);
+                        mSoundPool.play(mSoundId, vol, vol, 1, 0, 1);
                         int time_r1 = (int)System.currentTimeMillis();
                         right.setTime1(time_r1);
                         System.out.println(right.getTime());
@@ -158,6 +159,12 @@ public class StepTwoActivity extends Activity implements Runnable {
         Thread th = new Thread(StepTwoActivity.this);
         th.start();
 
+        button2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 
