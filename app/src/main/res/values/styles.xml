@@ -19,6 +19,13 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="step_1_btn">
+        <item name="android:textSize">30dp</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="start_btn">
         <item name="android:textSize">30dp</item>
         <item name="android:textColor">@android:color/white</item>

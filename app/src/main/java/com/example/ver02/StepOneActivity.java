@@ -7,9 +7,11 @@ import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -21,8 +23,7 @@ public class StepOneActivity extends Activity {
 
     Timestamp timestamp = new Timestamp(System.currentTimeMillis());
     Action right = new Action("right");
-    Action left = new Action("left");
-    GestureDetector detector;
+
     int setID = 0;
     int disp_num = 0;
     SoundPool mSoundPool;
@@ -54,7 +55,28 @@ public class StepOneActivity extends Activity {
         Button button2 = (Button)findViewById(R.id.menu);
         TextView count = (TextView)findViewById(R.id.count);
         TextView loop = (TextView)findViewById(R.id.loop);
+        TextView ctd = (TextView)findViewById(R.id.textView4);
 
+        CountDownTimer countDownTimer = new CountDownTimer(3000, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                getWindow().addFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+                int num = (int) (millisUntilFinished / 1000);
+                ctd.setText(Integer.toString(num + 1));
+
+            }
+
+            @Override
+            public void onFinish() {
+                getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+                ctd.setVisibility(View.INVISIBLE);
+                int time_r2 = (int)System.currentTimeMillis();
+                right.setTime2(time_r2);
+
+            }
+        };
+
+        countDownTimer.start();
 
         String ID = ( (GlobalVar) getApplication() ).getID();
         int Age = ( (GlobalVar) getApplication() ).getAge();
@@ -80,8 +102,6 @@ public class StepOneActivity extends Activity {
         right.Init();
 
 
-        int time_r2 = (int)System.currentTimeMillis();
-        right.setTime2(time_r2);
 
         button.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
@@ -155,52 +175,8 @@ public class StepOneActivity extends Activity {
                 startActivity(intent);
             }
         });
-        /*
-        view2.setOnTouchListener(new View.OnTouchListener() {
-            public boolean onTouch(View v, MotionEvent event) {
-                float curX = event.getX();
-                float abx = (float)(curX+1300);
-                left.setX(curX);
 
-                left.setabX(abx);
-                float curY = event.getY();
-                left.setY(curY);
 
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN: {
-                        int time_r1 = (int)System.currentTimeMillis();
-                        left.setTime1(time_r1);
-                        System.out.println("손가락 눌림 : " + curX + ", " + curY+ ", 현재시간: " +time_r1);
-                        left.writeFile1();
-                        left.setStatus(1);
-                        view2.setBackgroundColor(Color.parseColor("#FF00FF"));
-                        return true;
-                    }
-                    case MotionEvent.ACTION_MOVE: {
-                        System.out.println("손가락 움직임 : " + curX + ", " + curY);
-                        left.setStatus(2);
-                        left.writeFile2();
-                        return true;
-                    }
-                    case MotionEvent.ACTION_UP: {
-                        int time_r2 = (int)System.currentTimeMillis();
-                        left.setTime2(time_r2);
-                        int time = left.getTime();
-                        left.setStatus(0);
-                        left.writeFile3();
-                        System.out.println("손가락 뗌 : " + curX + ", " + curY + ", 현재시간: " +time_r2+" delay: "+time);
-                        view2.setBackgroundColor(Color.parseColor("#0427EB"));
-                        return false;
-                    }
-
-                    default:
-                        return false;
-                }
-
-            }
-
-        });
-*/
     }
 
 }

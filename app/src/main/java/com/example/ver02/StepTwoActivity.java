@@ -181,6 +181,8 @@ public class StepTwoActivity extends Activity implements Runnable {
         try {
             right.initSound((int)System.currentTimeMillis());
             while(true) {
+                Thread.sleep(duration);
+                if (flag == 1) break;
                 mSoundPool.play(mSoundId2, 1, 1, 5, 0, 1);
                 right.setStatus("sound");
           //      right.incSound();
@@ -188,8 +190,6 @@ public class StepTwoActivity extends Activity implements Runnable {
                 right.putSound((int)System.currentTimeMillis());
                 right.writeSound((int)System.currentTimeMillis());
                 sound_num++;
-                Thread.sleep(duration);
-                if (flag == 1) break;
 
             }
         } catch (InterruptedException e) {

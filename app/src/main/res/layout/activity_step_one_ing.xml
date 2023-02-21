@@ -53,7 +53,7 @@
 
     <Button
         android:id="@+id/menu"
-        style="@style/step_1_count"
+        style="@style/step_1_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="0dp"
@@ -69,7 +69,7 @@
 
     <Button
         android:id="@+id/musicOn"
-        style="@style/step_1_count"
+        style="@style/step_1_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -83,6 +83,18 @@
         app:layout_constraintStart_toEndOf="@id/menu"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/textView4"
+        style="@style/step_1_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3"
+        tools:layout_editor_absoluteX="356dp"
+        tools:layout_editor_absoluteY="367dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
