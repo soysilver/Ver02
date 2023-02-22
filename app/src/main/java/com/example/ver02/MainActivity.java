@@ -13,6 +13,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class MainActivity extends AppCompatActivity {
 
     String ID;
@@ -20,12 +23,15 @@ public class MainActivity extends AppCompatActivity {
     String Gender;
     int Hand;
 
+    long now = System.currentTimeMillis();
+    Date date = new Date(now);
+    SimpleDateFormat dateFormat2 = new SimpleDateFormat("yyyy-MM-dd hh-mm");
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button enter = (Button)findViewById(R.id.info_btn);
         Button step1 = (Button)findViewById(R.id.next_btn);
 
 
@@ -44,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         spinnerP.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                ID =  PID[position];
                 ( (GlobalVar) getApplication() ).setID(PID[position]);
             }
             @Override
@@ -149,6 +156,9 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("나이", Age);
                 intent.putExtra("성별", Gender);
                 intent.putExtra("손", Hand);
+
+                ( (GlobalVar) getApplication() ).setTitle(dateFormat2.format(date)+"_P"+ID+".txt");
+
 
                 startActivity(intent);
             }

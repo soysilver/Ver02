@@ -144,7 +144,7 @@ public class StepFourActivity extends Activity  implements Runnable {
                         System.out.println(right.getTime());
                         right.putArray();
                         right.setStatus("touchRight");
-                        right.writeFile1();
+                        right.writeFile1(( (GlobalVar) getApplication() ).getTitle());
                         disp_num++;// right.getArrNum()%20;
                         count.setText(Integer.toString(disp_num));
 
@@ -192,7 +192,7 @@ public class StepFourActivity extends Activity  implements Runnable {
                         System.out.println(right.getTime());
                         right.putArray();
                         right.setStatus("touchLeft");
-                        right.writeFile1();
+                        right.writeFile1(( (GlobalVar) getApplication() ).getTitle());
                         disp_num++;// right.getArrNum()%20;
                         count.setText(Integer.toString(disp_num));
 
@@ -248,7 +248,7 @@ public class StepFourActivity extends Activity  implements Runnable {
                     right.setStatus("sound");
                     right.putSound((int) System.currentTimeMillis());
                     sound_num++;
-                    right.writeFile1();
+                    right.writeSound((int) System.currentTimeMillis(), ( (GlobalVar) getApplication() ).getTitle());
                 }
                 Thread.sleep(duration);
             }

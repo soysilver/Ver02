@@ -29,7 +29,6 @@ public class StepOneActivity extends Activity {
     int mSoundId;
 
 
-
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
@@ -98,7 +97,7 @@ public class StepOneActivity extends Activity {
         }
         mSoundId = mSoundPool.load(getApplicationContext(), R.raw.sound, 1);
 
-        right.Init();
+        right.Init( ( (GlobalVar) getApplication() ).getTitle());
 
 
 
@@ -136,7 +135,7 @@ public class StepOneActivity extends Activity {
                         right.putArray();
                         right.putSound(time_r1);
                         right.setStatus("touch");
-                        right.writeFile1();
+                        right.writeFile1(( (GlobalVar) getApplication() ).getTitle());
                         disp_num++;// right.getArrNum()%20;
                         count.setText(Integer.toString(disp_num));
 

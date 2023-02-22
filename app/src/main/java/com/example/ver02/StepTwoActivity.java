@@ -146,7 +146,7 @@ public class StepTwoActivity extends Activity implements Runnable {
                         right.setHand(1);
                         right.putArray();
                         right.setStatus("touch");
-                        right.writeFile1();
+                        right.writeFile1(( (GlobalVar) getApplication() ).getTitle());
                         disp_num++;// right.getArrNum()%20;
                         count.setText(Integer.toString(disp_num));
 
@@ -212,7 +212,7 @@ public class StepTwoActivity extends Activity implements Runnable {
                 if (flag2 == 2){
                     right.setStatus("sound");
                     right.putSound((int)System.currentTimeMillis());
-                    right.writeSound((int)System.currentTimeMillis());
+                    right.writeSound((int)System.currentTimeMillis(), ( (GlobalVar) getApplication() ).getTitle());
                     sound_num++;
                 }
             }

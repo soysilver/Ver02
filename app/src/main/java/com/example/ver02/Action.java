@@ -140,8 +140,7 @@ public class Action extends Activity {
         }
 
 
-    public void Init() {
-        title = dateFormat2.format(date)+"_Person"+ID+"_.txt";
+    public void Init(String title) {
         String fileTitle = title;
         File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), fileTitle);
         try {
@@ -161,7 +160,7 @@ public class Action extends Activity {
     }
 
 
-    public void writeFile1() {
+    public void writeFile1(String title) {
         String fileTitle = title;
         File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), fileTitle);
         String a = file.getPath();
@@ -173,24 +172,13 @@ public class Action extends Activity {
             FileWriter first = new FileWriter(file, true);
             CSVWriter writer = new CSVWriter(first);
 
-            if (arr_num == 0){
-                String[] entries1 = {dateFormat.format(date), Integer.toString(time1) , ID, Integer.toString(Age), Gender, Integer.toString(Hand), String.valueOf(stageID),String.valueOf(setID),
-                        String.valueOf(BPMset), status,
-                        Integer.toString(sound_num),
-                        Integer.toString(arr_num),
-                        Integer.toString(0), Float.toString(abx), Float.toString(y),
-                        String.valueOf(0),String.valueOf(0),String.valueOf(0), String.valueOf(0) };  // 3
-                writer.writeNext(entries1);
-            }
-            else{
-                String[] entries1 = {dateFormat.format(date), Integer.toString(time1) , ID, Integer.toString(Age), Gender, Integer.toString(Hand), String.valueOf(stageID),String.valueOf(setID),
-                        String.valueOf(BPMset), status,
-                        Integer.toString(sound_num),
-                        Integer.toString(arr_num),
-                        Integer.toString(arr[arr_num-1]), Float.toString(abx), Float.toString(y),
-                        String.valueOf(getSum()),String.valueOf(getMean()),String.valueOf(getSortedSum()), String.valueOf(time1-Sound[arr_num -1]) };  // 3
-                writer.writeNext(entries1);
-            }
+            String[] entries1 = {dateFormat.format(date), Integer.toString(time1) , ID, Integer.toString(Age), Gender, Integer.toString(Hand), String.valueOf(stageID),String.valueOf(setID),
+                    String.valueOf(BPMset), status,
+                    Integer.toString(sound_num),
+                    Integer.toString(arr_num),
+                    Integer.toString(arr[arr_num-1]), Float.toString(abx), Float.toString(y),
+                    String.valueOf(getSum()),String.valueOf(getMean()),String.valueOf(getSortedSum()), String.valueOf(time1-Sound[arr_num -1]) };  // 3
+            writer.writeNext(entries1);
 
             writer.close();
 
@@ -199,8 +187,8 @@ public class Action extends Activity {
         }
     }
 
-    public void writeSound(int cTime) {
-        String fileTitle = "PID_timestamp_number.txt";
+    public void writeSound(int cTime, String title) {
+        String fileTitle = title;
         File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), fileTitle);
         String a = file.getPath();
         System.out.println(a);
@@ -216,7 +204,7 @@ public class Action extends Activity {
                         Integer.toString(sound_num),
                         Integer.toString(arr_num),
                         Integer.toString(0), Float.toString(0), Float.toString(0),
-                        String.valueOf(0),String.valueOf(0),String.valueOf(0), String.valueOf(cTime - Touch[sound_num]) };  // 3
+                        String.valueOf(0),String.valueOf(0),String.valueOf(0), String.valueOf(Touch[sound_num-1]-cTime ) };  // 3
                 writer.writeNext(entries1);
             }
             else{
@@ -225,7 +213,7 @@ public class Action extends Activity {
                         Integer.toString(sound_num),
                         Integer.toString(arr_num),
                         Integer.toString(0), Float.toString(0), Float.toString(0),
-                        String.valueOf(0),String.valueOf(0),String.valueOf(0), String.valueOf(cTime - Touch[sound_num]) };  // 3
+                        String.valueOf(0),String.valueOf(0),String.valueOf(0), String.valueOf(0) };  // 3
                 writer.writeNext(entries1);
             }
 
@@ -238,12 +226,18 @@ public class Action extends Activity {
 
 
     public void putArray(){
+        setTouch();
         int a = getTime();
         arr[arr_num]=60000/a;
-        arr_num++;
 
+        arr_num++;
  //       global.setSum(this.getSum());
 //        System.out.println(global.getSum());
+    }
+
+    public void setTouch(){
+        int a = time1;
+        arr[arr_num]=a;
     }
 
     public void putSound(int a){

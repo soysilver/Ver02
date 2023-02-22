@@ -19,6 +19,8 @@
     <string name="next">다음</string>
     <string name="step_end">메뉴</string>
     <string name="step_return">돌아가기</string>
+
+    <string name="ing_M">menu</string>
     <!--    -->
     <string name="step_1_info">반갑습니다!\n\n아래 버튼을 누르면 1단계 측정이 시작됩니다.</string>
     <string name="step_1_end">1단계 측정이 완료되었습니다.\n\n다음 단계로 이동하시려면 아래 버튼을 눌러주세요.</string>

@@ -9,6 +9,15 @@ public class GlobalVar extends Application {
     int Hand = 0;
     int Tempo = 60;
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    String title;
 
     int sum = 60;
     int mean = 60;
