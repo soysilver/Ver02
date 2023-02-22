@@ -41,6 +41,10 @@
         <activity android:name=".StepThreeActivityBefore"/>
         <activity android:name=".StepThreeActivity"/>
         <activity android:name=".StepThreeActivityEnd"/>
+        <activity android:name=".StepFourActivityBefore"/>
+        <activity android:name=".StepFourActivity"/>
+        <activity android:name=".StepFourActivityEnd"/>
+
     </application>
 
 </manifest>

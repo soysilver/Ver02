@@ -159,7 +159,7 @@ public class Action extends Activity {
 
 
     public void writeFile1() {
-        String fileTitle = "PID_timestamp_number.txt";
+        String fileTitle = dateFormat.format(date)+"_"+ID+"_.txt";
         File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), fileTitle);
         String a = file.getPath();
         System.out.println(a);
