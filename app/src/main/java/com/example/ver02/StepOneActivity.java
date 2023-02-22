@@ -8,7 +8,6 @@ import android.media.SoundPool;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
@@ -144,11 +143,15 @@ public class StepOneActivity extends Activity {
                         if (disp_num >= 20){
                             disp_num=0;
                             loop.setText(String.valueOf(setID));
-                            ( (GlobalVar) getApplication() ).setSum(right.getSum());
+                            ( (GlobalVar) getApplication() ).setTempo(right.getSum());
                             Intent intent = new Intent(getApplicationContext(), StepOneActivityEnd.class);
                             intent.putExtra("loop", setID);
                             intent.putExtra("sum", right.getSum());
+                            ( (GlobalVar) getApplication() ).setTempo(right.getSum());
+                            ( (GlobalVar) getApplication() ).setSum(right.getSum());
                             intent.putExtra("mean", right.getMean());
+                            ( (GlobalVar) getApplication() ).setMean(right.getMean());
+                            ( (GlobalVar) getApplication() ).setPer(right.getSortedSum());
                             intent.putExtra("per", right.getSortedSum());
                             startActivity(intent);
                         }

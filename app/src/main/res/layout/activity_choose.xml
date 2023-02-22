@@ -111,6 +111,38 @@
         app:layout_constraintStart_toEndOf="@+id/button4"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
+    <Button
+        android:id="@+id/Sum"
+        style="@style/step_1_info"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:text="sum"
+        app:layout_constraintEnd_toStartOf="@id/mean"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView" />
+    <Button
+        android:id="@+id/mean"
+        style="@style/step_1_info"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:text="mean"
+        app:layout_constraintEnd_toStartOf="@id/per"
+        app:layout_constraintStart_toEndOf="@id/Sum"
+        app:layout_constraintTop_toBottomOf="@id/textView" />
+
+    <Button
+        android:id="@+id/per"
+        style="@style/step_1_info"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:text="80%"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/mean"
+        app:layout_constraintTop_toBottomOf="@id/textView" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

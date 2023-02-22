@@ -56,7 +56,7 @@ public class StepThreeActivity extends Activity  implements Runnable {
         factor = b_intent.getIntExtra("factor",100);
         loop_num = b_intent.getIntExtra("loop",loop_num);
 
-        duration = 600*factor/( (GlobalVar) getApplication() ).getSum();
+        duration = 600*factor/( (GlobalVar) getApplication() ).getTempo();
 
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, MODE_PRIVATE);
         View view1 = (View)findViewById(R.id.view1);
@@ -156,7 +156,7 @@ public class StepThreeActivity extends Activity  implements Runnable {
                         disp_num++;// right.getArrNum()%20;
                         count.setText(Integer.toString(disp_num));
 
-                        if (disp_num >= 20){
+                        if (disp_num >= 40){
                             disp_num=0;
                             loop.setText(String.valueOf(loop_num));
                             flag =1;
@@ -205,7 +205,7 @@ public class StepThreeActivity extends Activity  implements Runnable {
                         disp_num++;// right.getArrNum()%20;
                         count.setText(Integer.toString(disp_num));
 
-                        if (disp_num >= 20){
+                        if (disp_num >= 40){
                             disp_num=0;
                             loop.setText(String.valueOf(loop_num));
                             flag =1;

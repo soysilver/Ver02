@@ -7,15 +7,21 @@ public class GlobalVar extends Application {
     int Age = 0;
     String Gender ="Fail";
     int Hand = 0;
-    int sum = 60;
+    int Tempo = 60;
 
-    public int getSum() {
-        System.out.println(sum);
-        return sum;
+
+    int sum = 60;
+    int mean = 60;
+    int per = 60;
+
+
+    public int getTempo() {
+        System.out.println(Tempo);
+        return Tempo;
     }
 
-    public void setSum(int sum) {
-        this.sum = sum;
+    public void setTempo(int sum) {
+        this.Tempo = sum;
         System.out.println(sum);
     }
 
@@ -61,6 +67,30 @@ public class GlobalVar extends Application {
 
     public void setHand(int hand) {
         Hand = hand;
+    }
+
+    public int getSum() {
+        return sum;
+    }
+
+    public void setSum(int sum) {
+        this.sum = sum;
+    }
+
+    public int getMean() {
+        return mean;
+    }
+
+    public void setMean(int mean) {
+        this.mean = mean;
+    }
+
+    public int getPer() {
+        return per;
+    }
+
+    public void setPer(int per) {
+        this.per = per;
     }
 
 }

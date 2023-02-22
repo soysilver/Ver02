@@ -53,7 +53,7 @@ public class StepFourActivity extends Activity  implements Runnable {
         factor = b_intent.getIntExtra("factor",100);
         loop_num = b_intent.getIntExtra("loop",loop_num);
 
-        duration = 600*factor/( (GlobalVar) getApplication() ).getSum();
+        duration = 600*factor/( (GlobalVar) getApplication() ).getTempo();
 
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, MODE_PRIVATE);
         View view1 = (View)findViewById(R.id.view1);

@@ -48,7 +48,9 @@ public class Action extends Activity {
     long now = System.currentTimeMillis();
     Date date = new Date(now);
     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    SimpleDateFormat dateFormat2 = new SimpleDateFormat("yyyy-MM-dd hh-mm");
 
+    String title;
 
     public Action(String Name) {
         this.name = Name;
@@ -139,7 +141,8 @@ public class Action extends Activity {
 
 
     public void Init() {
-        String fileTitle = "PID_timestamp_number.txt";
+        title = dateFormat2.format(date)+"_Person"+ID+"_.txt";
+        String fileTitle = title;
         File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), fileTitle);
         try {
             if (!file.exists()) {
@@ -159,7 +162,7 @@ public class Action extends Activity {
 
 
     public void writeFile1() {
-        String fileTitle = dateFormat.format(date)+"_"+ID+"_.txt";
+        String fileTitle = title;
         File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), fileTitle);
         String a = file.getPath();
         System.out.println(a);
