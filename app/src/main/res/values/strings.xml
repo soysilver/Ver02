@@ -29,6 +29,11 @@
     <string name="step_2_end">2단계 측정이 완료되었습니다.\n\n다음 단계로 이동하시려면 아래 버튼을 눌러주세요.</string>
 
     <string name="step_3_info">아래 버튼을 누르면 3단계 측정이 시작됩니다.</string>
-    <string name="step_3_ing">우세손부터 양손을 번갈아 화면을 20번 두들겨 주세요.</string>
+    <string name="step_3_ing">앵손을 동시에 화면을 20번 두들겨 주세요.</string>
     <string name="step_3_end">3단계 측정이 완료되었습니다.\n\n다음 단계로 이동하시려면 아래 버튼을 눌러주세요.</string>
+
+    <string name="step_4_info">아래 버튼을 누르면 4단계 측정이 시작됩니다.</string>
+    <string name="step_4_ing">우세손부터 양손을 번갈아 화면을 20번 두들겨 주세요.</string>
+    <string name="step_4_end">4단계 측정이 완료되었습니다.\n\n다음 단계로 이동하시려면 아래 버튼을 눌러주세요.</string>
+
 </resources>
