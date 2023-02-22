@@ -200,7 +200,7 @@ public class StepFourActivity extends Activity  implements Runnable {
                             disp_num=0;
                             loop.setText(String.valueOf(loop_num));
                             flag =1;
-                            Intent intent = new Intent(getApplicationContext(), StepThreeActivityEnd.class);
+                            Intent intent = new Intent(getApplicationContext(), StepFourActivityEnd.class);
                             intent.putExtra("loop", loop_num);
                             intent.putExtra("factor", factor);
                             startActivity(intent);
@@ -241,6 +241,8 @@ public class StepFourActivity extends Activity  implements Runnable {
     @Override
     public void run() {
         try {
+            Thread.sleep(duration);
+
             while(true) {
                 if (flag == 1) break;
                 mSoundPool.play(mSoundId2, 1, 1, 1, 0, 1);

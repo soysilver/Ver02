@@ -155,7 +155,7 @@ public class StepThreeActivity extends Activity  implements Runnable {
                         disp_num++;// right.getArrNum()%20;
                         count.setText(Integer.toString(disp_num));
 
-                        if (disp_num >= 20){
+                        if (disp_num >= 40){
                             disp_num=0;
                             loop.setText(String.valueOf(loop_num));
                             flag =1;
@@ -203,7 +203,7 @@ public class StepThreeActivity extends Activity  implements Runnable {
                         disp_num++;// right.getArrNum()%20;
                         count.setText(Integer.toString(disp_num));
 
-                        if (disp_num >= 20){
+                        if (disp_num >= 40){
                             disp_num=0;
                             loop.setText(String.valueOf(loop_num));
                             flag =1;
@@ -248,6 +248,7 @@ public class StepThreeActivity extends Activity  implements Runnable {
     @Override
     public void run() {
         try {
+            Thread.sleep(duration);
             while(true) {
                 if (flag == 1) break;
                 mSoundPool.play(mSoundId2, 1, 1, 1, 0, 1);

@@ -205,6 +205,7 @@ public class StepTwoActivity extends Activity implements Runnable {
         //right.putSound((int)System.currentTimeMillis(),duration);
         try {
             right.initSound((int)System.currentTimeMillis());
+            Thread.sleep(duration);
             while(true) {
                 Thread.sleep(duration);
                 if (flag == 1) break;
