@@ -7,9 +7,11 @@ import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -31,6 +33,7 @@ public class StepThreeActivity extends Activity  implements Runnable {
     int duration;
     int factor = 100;
     int Hand=0;
+    int flag2 = 0;
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
@@ -59,10 +62,33 @@ public class StepThreeActivity extends Activity  implements Runnable {
         View view1 = (View)findViewById(R.id.view1);
         View view2 = (View)findViewById(R.id.view2);
         Button button = (Button)findViewById(R.id.musicOn);
+        Button button2 = (Button)findViewById(R.id.menu);
         TextView count = (TextView)findViewById(R.id.count);
         TextView loop = (TextView)findViewById(R.id.loop);
         loop.setText(String.valueOf(loop_num));
+        TextView ctd = (TextView)findViewById(R.id.textView4);
 
+        CountDownTimer countDownTimer = new CountDownTimer(3000, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                getWindow().addFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+                int num = (int) (millisUntilFinished / 1000);
+                ctd.setText(Integer.toString(num + 1));
+
+            }
+
+            @Override
+            public void onFinish() {
+                getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+                ctd.setVisibility(View.INVISIBLE);
+                int time_r2 = (int)System.currentTimeMillis();
+                right.setTime2(time_r2);
+                flag2 = 2;
+
+            }
+        };
+
+        countDownTimer.start();
 
         String ID = ( (GlobalVar) getApplication() ).getID();
         int Age = ( (GlobalVar) getApplication() ).getAge();
@@ -204,9 +230,16 @@ public class StepThreeActivity extends Activity  implements Runnable {
             }
 
         });
-
+        button2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
+
+
 
     int flag = 0;
     protected void onStop() {
@@ -221,37 +254,47 @@ public class StepThreeActivity extends Activity  implements Runnable {
             if (Hand == 1){
                 while(true) {
                     mSoundPool.play(mSoundId2, 1, 1, 1, 0, 1);
-                    right.setStatus("sound");
-                    right.putSound((int)System.currentTimeMillis());
-                    sound_num++;
-                    right.writeFile1();
+                    if (flag2 == 2) {
+                        right.setStatus("sound");
+                        right.putSound((int) System.currentTimeMillis());
+                        sound_num++;
+                        right.writeFile1();
+                    }
                     if (flag == 1) break;
                     Thread.sleep(duration);
                     mSoundPool.play(mSoundId2, 1, 1, 1, 0, 1);
-                    left.putSound((int)System.currentTimeMillis());
-                    left.setStatus("sound");
-                    sound_num++;
-                    left.writeFile1();
+                    if (flag2 == 2) {
+                        left.putSound((int) System.currentTimeMillis());
+                        left.setStatus("sound");
+                        sound_num++;
+                        left.writeFile1();
+                    }
                     if (flag == 1) break;
+                    Thread.sleep(duration);
                 }
             }else if(Hand == 0){
                 while(true) {
                     if (flag == 1) break;
                     mSoundPool.play(mSoundId2, 1, 1, 1, 0, 1);
-                    left.putSound((int)System.currentTimeMillis());
-                    left.setStatus("sound");
-                    //left.incSound();
-                    left.writeSound((int)System.currentTimeMillis());
-                    sound_num++;
+                    if (flag2 == 2) {
+                        left.putSound((int) System.currentTimeMillis());
+                        left.setStatus("sound");
+                        //left.incSound();
+                        left.writeSound((int) System.currentTimeMillis());
+                        sound_num++;
+                    }
                     Thread.sleep(duration);
                     if (flag == 1) break;
                     mSoundPool.play(mSoundId2, 1, 1, 1, 0, 1);
-                    right.setStatus("sound");
-                    right.putSound((int)System.currentTimeMillis());
-                   // right.incSound();
-                    right.writeSound((int)System.currentTimeMillis());
-                    sound_num++;
-                    if (flag == 1) break;
+                    if (flag2 == 2) {
+                        right.setStatus("sound");
+                        right.putSound((int) System.currentTimeMillis());
+                        // right.incSound();
+                        right.writeSound((int) System.currentTimeMillis());
+                        sound_num++;
+                        if (flag == 1) break;
+                    }
+                    Thread.sleep(duration);
                 }
             }
 

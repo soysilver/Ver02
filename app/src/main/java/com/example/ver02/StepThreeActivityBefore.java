@@ -24,7 +24,7 @@ public class StepThreeActivityBefore extends Activity {
         Button button5 = (Button) findViewById(R.id.button5);
 
 
-        TextView T = (TextView) findViewById(R.id.textView2);
+       // TextView T = (TextView) findViewById(R.id.textView2);
 
         Intent b_intent = getIntent();
         loop = b_intent.getIntExtra("loop",loop);
@@ -33,7 +33,7 @@ public class StepThreeActivityBefore extends Activity {
             @Override
             public void onTick(long millisUntilFinished) {
                 int num = (int) (millisUntilFinished / 1000);
-                T.setText(Integer.toString(num + 1));
+       //         T.setText(Integer.toString(num + 1));
 
             }
 
@@ -48,33 +48,31 @@ public class StepThreeActivityBefore extends Activity {
 
             public void onClick(View view) {
                 setFlag(80);
-                countDownTimer.start();
+                startIntent(flag);
             }
         });
         button2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 setFlag(90);
-                countDownTimer.start();
-
+                startIntent(flag);
             }
         });
         button3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 setFlag(100);
-                countDownTimer.start();
-
+                startIntent(flag);
             }
         });
         button4.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 setFlag(110);
-                countDownTimer.start();
+                startIntent(flag);
             }
         });
         button5.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 setFlag(120);
-                countDownTimer.start();
+                startIntent(flag);
             }
         });
     }
