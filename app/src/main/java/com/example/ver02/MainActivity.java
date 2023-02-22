@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         TextView Gender_text = (TextView)findViewById(R.id.Gender_text);
-        String[] Gender = {"male", "Female", "other"};
+        String[] Gender = {"Male", "Female", "Other"};
         Spinner spinnerG = (Spinner) findViewById(R.id.GenderS);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(
@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         TextView Hand_text = (TextView)findViewById(R.id.Hand_text);
-        String[] Hand = {"right", "left"};
+        String[] Hand = {"Right", "Left"};
         Spinner spinnerH = (Spinner) findViewById(R.id.HandS);
 
         ArrayAdapter<String> adapter3 = new ArrayAdapter<String>(

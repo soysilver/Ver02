@@ -22,7 +22,7 @@
     <TextView
         android:id="@+id/textView"
         style="@style/p_info"
-        android:layout_width="wrap_content"
+        android:layout_width="600dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="300dp"
         android:text="@string/step_1_ing"
@@ -35,7 +35,7 @@
 
     <Button
         android:id="@+id/step2"
-        android:layout_width="100dp"
+        android:layout_width="wrap_content"
         android:layout_height="100dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="10dp"
@@ -50,7 +50,7 @@
     <TextView
         android:id="@+id/textView2"
         style="@style/p_info"
-        android:layout_width="wrap_content"
+        android:layout_width="600dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="300dp"
         android:text="@string/step_2_ing"
@@ -76,7 +76,7 @@
     <TextView
         android:id="@+id/textView3"
         style="@style/p_info"
-        android:layout_width="wrap_content"
+        android:layout_width="600dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="300dp"
         android:text="@string/step_3_ing"
@@ -102,7 +102,7 @@
     <TextView
         android:id="@+id/textView4"
         style="@style/p_info"
-        android:layout_width="wrap_content"
+        android:layout_width="600dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="300dp"
         android:text="@string/step_4_ing"

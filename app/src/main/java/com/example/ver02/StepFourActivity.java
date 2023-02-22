@@ -92,7 +92,7 @@ public class StepFourActivity extends Activity  implements Runnable {
         String Gender = ( (GlobalVar) getApplication() ).getGender();
         Hand = ( (GlobalVar) getApplication() ).getHand();
 
-        right.setIdentify(ID, Age, Gender, Hand, 3, loop_num, factor);
+        right.setIdentify(ID, Age, Gender, Hand, 4, loop_num, factor);
         int time_r2 = (int)System.currentTimeMillis();
         right.setTime2(time_r2);
 
@@ -109,6 +109,7 @@ public class StepFourActivity extends Activity  implements Runnable {
 
         Thread th = new Thread(StepFourActivity.this);
         th.start();
+
 
 
         button.setOnLongClickListener(new View.OnLongClickListener() {
@@ -245,7 +246,9 @@ public class StepFourActivity extends Activity  implements Runnable {
 
             while(true) {
                 if (flag == 1) break;
+
                 mSoundPool.play(mSoundId2, 1, 1, 1, 0, 1);
+
                 if (flag2 == 2) {
                     right.setStatus("sound");
                     right.putSound((int) System.currentTimeMillis());
