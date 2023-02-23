@@ -2,6 +2,7 @@ package com.example.ver02;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -56,50 +57,63 @@ public class StepTwoActivityBefore extends Activity {
         button1.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
+                button1.setBackgroundColor(Color.BLUE);
                 setFlag(80);
                 startIntent(flag);
             }
         });
         button2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
+                button2.setBackgroundColor(Color.BLUE);
                 setFlag(90);
                 startIntent(flag);
             }
         });
         button3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
+                button3.setBackgroundColor(Color.BLUE);
                 setFlag(100);
                 startIntent(flag);
             }
         });
         button4.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
+                button4.setBackgroundColor(Color.BLUE);
                 setFlag(110);
                 startIntent(flag);
             }
         });
         button5.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
+                button5.setBackgroundColor(Color.BLUE);
+                button5.setBackgroundColor(Color.BLUE);
                 setFlag(120);
                 startIntent(flag);
             }
         });
         Sum.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-
+                Sum.setBackgroundColor(Color.BLUE);
+                Mean.setBackgroundColor(Color.TRANSPARENT);
+                Per.setBackgroundColor(Color.TRANSPARENT);
                 ( (GlobalVar) getApplication() ).setTempo(sum);
             }
         });
 
         Mean.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-
+                Sum.setBackgroundColor(Color.TRANSPARENT);
+                Mean.setBackgroundColor(Color.BLUE);
+                Per.setBackgroundColor(Color.TRANSPARENT);
                 ( (GlobalVar) getApplication() ).setTempo(mean);
             }
         });
 
         Per.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
+                Sum.setBackgroundColor(Color.TRANSPARENT);
+                Mean.setBackgroundColor(Color.TRANSPARENT);
+                Per.setBackgroundColor(Color.BLUE);
                 ( (GlobalVar) getApplication() ).setTempo(per);
             }
         });
