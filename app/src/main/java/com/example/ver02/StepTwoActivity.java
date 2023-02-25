@@ -3,6 +3,7 @@ package com.example.ver02;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Build;
@@ -139,7 +140,8 @@ public class StepTwoActivity extends Activity implements Runnable {
                 right.setabX(curX);
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN: {
-                        mSoundPool.play(mSoundId, vol, vol, 1, 0, 1);
+                    //    mSoundPool.play(mSoundId, vol, vol, 1, 0, 1);
+                        view1.setBackgroundColor(Color.LTGRAY);
                         int time_r1 = (int)System.currentTimeMillis();
                         right.setTime1(time_r1);
                         System.out.println(right.getTime());
@@ -169,6 +171,7 @@ public class StepTwoActivity extends Activity implements Runnable {
                         return true;
                     }
                     case MotionEvent.ACTION_UP: {
+                        view1.setBackgroundColor(Color.TRANSPARENT);
                         right.changeTime();
                         return false;
                     }

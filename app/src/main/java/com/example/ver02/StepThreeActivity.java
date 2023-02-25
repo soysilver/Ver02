@@ -145,7 +145,7 @@ public class StepThreeActivity extends Activity  implements Runnable {
                 right.setabX(curX);
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN: {
-                        mSoundPool.play(mSoundId, 1, 1, 1, 0, 1);
+                  //      mSoundPool.play(mSoundId, 1, 1, 1, 0, 1);
                         int time_r1 = (int)System.currentTimeMillis();
                         right.setTime1(time_r1);
                         System.out.println(right.getTime());
@@ -193,7 +193,7 @@ public class StepThreeActivity extends Activity  implements Runnable {
                 left.setabX(curX);
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN: {
-                        mSoundPool.play(mSoundId, 1, 1, 1, 0, 1);
+                     //   mSoundPool.play(mSoundId, 1, 1, 1, 0, 1);
                         int time_r1 = (int)System.currentTimeMillis();
                         left.setTime1(time_r1);
                         System.out.println(left.getTime());
