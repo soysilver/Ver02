@@ -3,6 +3,7 @@ package com.example.ver02;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Build;
@@ -146,6 +147,7 @@ public class StepThreeActivity extends Activity  implements Runnable {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN: {
                   //      mSoundPool.play(mSoundId, 1, 1, 1, 0, 1);
+                        view1.setBackgroundColor(Color.LTGRAY);
                         int time_r1 = (int)System.currentTimeMillis();
                         right.setTime1(time_r1);
                         System.out.println(right.getTime());
@@ -168,6 +170,7 @@ public class StepThreeActivity extends Activity  implements Runnable {
                         return true;
                     }
                     case MotionEvent.ACTION_UP: {
+                        view1.setBackgroundColor(Color.TRANSPARENT);
                         right.changeTime();
                         return false;
                     }
@@ -193,6 +196,7 @@ public class StepThreeActivity extends Activity  implements Runnable {
                 left.setabX(curX);
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN: {
+                        view2.setBackgroundColor(Color.LTGRAY);
                      //   mSoundPool.play(mSoundId, 1, 1, 1, 0, 1);
                         int time_r1 = (int)System.currentTimeMillis();
                         left.setTime1(time_r1);
@@ -216,6 +220,7 @@ public class StepThreeActivity extends Activity  implements Runnable {
                         return true;
                     }
                     case MotionEvent.ACTION_UP: {
+                        view2.setBackgroundColor(Color.TRANSPARENT);
                         left.changeTime();
                         return false;
                     }
