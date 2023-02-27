@@ -84,8 +84,6 @@ public class StepThreeActivity extends Activity  implements Runnable {
                 ctd.setVisibility(View.INVISIBLE);
                 int time_r2 = (int)System.currentTimeMillis();
                 right.setTime2(time_r2);
-                flag2 = 2;
-
             }
         };
 
@@ -148,25 +146,28 @@ public class StepThreeActivity extends Activity  implements Runnable {
                     case MotionEvent.ACTION_DOWN: {
                   //      mSoundPool.play(mSoundId, 1, 1, 1, 0, 1);
                         view1.setBackgroundColor(Color.LTGRAY);
-                        int time_r1 = (int)System.currentTimeMillis();
-                        right.setTime1(time_r1);
-                        System.out.println(right.getTime());
-                        right.putArray();
-                        right.setStatus("touchRight");
-                        right.writeFile1(( (GlobalVar) getApplication() ).getTitle());
-                        disp_num++;// right.getArrNum()%20;
-                        count.setText(Integer.toString(disp_num));
 
-                        if (disp_num >= 40){
-                            disp_num=0;
-                            loop.setText(String.valueOf(loop_num));
-                            flag =1;
-                            Intent intent = new Intent(getApplicationContext(), StepThreeActivityEnd.class);
-                            intent.putExtra("loop", loop_num);
-                            intent.putExtra("factor", factor);
-                            startActivity(intent);
+                        if(flag == 2) {
+                            int time_r1 = (int) System.currentTimeMillis();
+                            right.setTime1(time_r1);
+                            System.out.println(right.getTime());
+                            right.putArray();
+                            right.setStatus("touchRight");
+                            right.writeFile1(((GlobalVar) getApplication()).getTitle());
+                            disp_num++;// right.getArrNum()%20;
+                            count.setText(Integer.toString(disp_num));
+
+                            if (disp_num >= 40) {
+                                disp_num = 0;
+                                loop.setText(String.valueOf(loop_num));
+                                flag = 1;
+                                Intent intent = new Intent(getApplicationContext(), StepThreeActivityEnd.class);
+                                intent.putExtra("loop", loop_num);
+                                intent.putExtra("factor", factor);
+                                startActivity(intent);
+                            }
                         }
-
+                        flag2 = 2;
                         return true;
                     }
                     case MotionEvent.ACTION_UP: {
@@ -196,27 +197,29 @@ public class StepThreeActivity extends Activity  implements Runnable {
                 left.setabX(curX);
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN: {
-                        view2.setBackgroundColor(Color.LTGRAY);
-                     //   mSoundPool.play(mSoundId, 1, 1, 1, 0, 1);
-                        int time_r1 = (int)System.currentTimeMillis();
-                        left.setTime1(time_r1);
-                        System.out.println(left.getTime());
-                        left.putArray();
-                        left.setStatus("touchLeft");
-                        left.writeFile1(( (GlobalVar) getApplication() ).getTitle());
-                        disp_num++;// right.getArrNum()%20;
-                        count.setText(Integer.toString(disp_num));
+                        if(flag == 2) {
+                            view2.setBackgroundColor(Color.LTGRAY);
+                            //   mSoundPool.play(mSoundId, 1, 1, 1, 0, 1);
+                            int time_r1 = (int) System.currentTimeMillis();
+                            left.setTime1(time_r1);
+                            System.out.println(left.getTime());
+                            left.putArray();
+                            left.setStatus("touchLeft");
+                            left.writeFile1(((GlobalVar) getApplication()).getTitle());
+                            disp_num++;// right.getArrNum()%20;
+                            count.setText(Integer.toString(disp_num));
 
-                        if (disp_num >= 40){
-                            disp_num=0;
-                            loop.setText(String.valueOf(loop_num));
-                            flag =1;
-                            Intent intent = new Intent(getApplicationContext(), StepThreeActivityEnd.class);
-                            intent.putExtra("loop", loop_num);
-                            intent.putExtra("factor", factor);
-                            startActivity(intent);
+                            if (disp_num >= 40) {
+                                disp_num = 0;
+                                loop.setText(String.valueOf(loop_num));
+                                flag = 1;
+                                Intent intent = new Intent(getApplicationContext(), StepThreeActivityEnd.class);
+                                intent.putExtra("loop", loop_num);
+                                intent.putExtra("factor", factor);
+                                startActivity(intent);
+                            }
                         }
-
+                        flag2 = 2;
                         return true;
                     }
                     case MotionEvent.ACTION_UP: {

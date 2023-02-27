@@ -142,32 +142,34 @@ public class StepTwoActivity extends Activity implements Runnable {
                     case MotionEvent.ACTION_DOWN: {
                     //    mSoundPool.play(mSoundId, vol, vol, 1, 0, 1);
                         view1.setBackgroundColor(Color.LTGRAY);
-                        int time_r1 = (int)System.currentTimeMillis();
-                        right.setTime1(time_r1);
-                        System.out.println(right.getTime());
-                        right.setHand(1);
-                        right.putArray();
-                        right.setStatus("touch");
-                        right.writeFile1(( (GlobalVar) getApplication() ).getTitle());
-                        disp_num++;// right.getArrNum()%20;
-                        count.setText(Integer.toString(disp_num));
+                        if (flag2 == 2) {
+                            int time_r1 = (int) System.currentTimeMillis();
+                            right.setTime1(time_r1);
+                            System.out.println(right.getTime());
+                            right.setHand(1);
+                            right.putArray();
+                            right.setStatus("touch");
+                            right.writeFile1(((GlobalVar) getApplication()).getTitle());
+                            disp_num++;// right.getArrNum()%20;
+                            count.setText(Integer.toString(disp_num));
 
-                        Log.v("test","kkkkkk");
-                        if (disp_num >= 20){
-                            Log.v("test","innnnn");
-                            disp_num=0;
-                            loop.setText(String.valueOf(loop_num));
-                            flag = 1;
-                            Intent intent = new Intent(getApplicationContext(), StepTwoActivityEnd.class);
+                            Log.v("test", "kkkkkk");
+                            if (disp_num >= 20) {
+                                Log.v("test", "innnnn");
+                                disp_num = 0;
+                                loop.setText(String.valueOf(loop_num));
+                                flag = 1;
+                                Intent intent = new Intent(getApplicationContext(), StepTwoActivityEnd.class);
 
-                            Log.i("loop","num__"+loop_num);
-                            Log.i("intent____","intent_"+intent);
+                                Log.i("loop", "num__" + loop_num);
+                                Log.i("intent____", "intent_" + intent);
 
-                            intent.putExtra("loop", loop_num);
-                            intent.putExtra("factor", factor);
-                            startActivity(intent);
+                                intent.putExtra("loop", loop_num);
+                                intent.putExtra("factor", factor);
+                                startActivity(intent);
+                            }
                         }
-
+                        flag2 = 2;
                         return true;
                     }
                     case MotionEvent.ACTION_UP: {
