@@ -192,7 +192,7 @@ public class StepFourActivity extends Activity  implements Runnable {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN: {
                         view2.setBackgroundColor(Color.LTGRAY);
-                        if (flag ==2) {
+                        if (flag2 ==2) {
                             //   mSoundPool.play(mSoundId, 1, 1, 1, 0, 1);
                             int time_r1 = (int) System.currentTimeMillis();
                             right.setTime1(time_r1);

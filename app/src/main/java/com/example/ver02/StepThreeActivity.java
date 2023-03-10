@@ -145,9 +145,9 @@ public class StepThreeActivity extends Activity  implements Runnable {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN: {
                   //      mSoundPool.play(mSoundId, 1, 1, 1, 0, 1);
-                        view1.setBackgroundColor(Color.LTGRAY);
+                        if (flag2 ==2) {
 
-                        if(flag == 2) {
+                            view1.setBackgroundColor(Color.LTGRAY);
                             int time_r1 = (int) System.currentTimeMillis();
                             right.setTime1(time_r1);
                             System.out.println(right.getTime());
@@ -167,6 +167,7 @@ public class StepThreeActivity extends Activity  implements Runnable {
                                 startActivity(intent);
                             }
                         }
+
                         flag2 = 2;
                         return true;
                     }
@@ -197,7 +198,7 @@ public class StepThreeActivity extends Activity  implements Runnable {
                 left.setabX(curX);
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN: {
-                        if(flag == 2) {
+                        if (flag2 ==2) {
                             view2.setBackgroundColor(Color.LTGRAY);
                             //   mSoundPool.play(mSoundId, 1, 1, 1, 0, 1);
                             int time_r1 = (int) System.currentTimeMillis();

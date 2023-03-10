@@ -29,6 +29,12 @@ public class StepTwoActivityBefore extends Activity {
         Button Mean = (Button) findViewById(R.id.mean);
         Button Per = (Button) findViewById(R.id.per);
 
+        button1.setText(( (GlobalVar) getApplication() ).getMap(0, 2) + "%");
+        button2.setText(( (GlobalVar) getApplication() ).getMap(1,2) + "%");
+        button3.setText(( (GlobalVar) getApplication() ).getMap(2, 2) + "%");
+        button4.setText(( (GlobalVar) getApplication() ).getMap(3, 2) + "%");
+        button5.setText(( (GlobalVar) getApplication() ).getMap(4, 2) + "%");
+
         Intent b_intent = getIntent();
         loop = b_intent.getIntExtra("loop",loop);
 
@@ -58,28 +64,33 @@ public class StepTwoActivityBefore extends Activity {
 
             public void onClick(View view) {
                 button1.setBackgroundColor(Color.BLUE);
-                setFlag(80);
+                int buffer = ( (GlobalVar) getApplication() ).getMap(0, 1);
+                setFlag(buffer);
+           //     setFlag(80);
                 startIntent(flag);
             }
         });
         button2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 button2.setBackgroundColor(Color.BLUE);
-                setFlag(90);
+                int buffer = ( (GlobalVar) getApplication() ).getMap(1, 1);
+                setFlag(buffer);
                 startIntent(flag);
             }
         });
         button3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 button3.setBackgroundColor(Color.BLUE);
-                setFlag(100);
+                int buffer = ( (GlobalVar) getApplication() ).getMap(2, 1);
+                setFlag(buffer);
                 startIntent(flag);
             }
         });
         button4.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 button4.setBackgroundColor(Color.BLUE);
-                setFlag(110);
+                int buffer = ( (GlobalVar) getApplication() ).getMap(3, 1);
+                setFlag(buffer);
                 startIntent(flag);
             }
         });
@@ -87,7 +98,8 @@ public class StepTwoActivityBefore extends Activity {
             public void onClick(View view) {
                 button5.setBackgroundColor(Color.BLUE);
                 button5.setBackgroundColor(Color.BLUE);
-                setFlag(120);
+                int buffer = ( (GlobalVar) getApplication() ).getMap(4, 1);
+                setFlag(buffer);
                 startIntent(flag);
             }
         });

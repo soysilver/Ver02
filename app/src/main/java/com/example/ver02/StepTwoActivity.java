@@ -105,7 +105,7 @@ public class StepTwoActivity extends Activity implements Runnable {
                     .setMaxStreams(1)
                     .build();
         } else {
-            mSoundPool = new SoundPool(1, AudioManager.STREAM_MUSIC, 1);
+            mSoundPool = new SoundPool(2, AudioManager.STREAM_MUSIC, 1);
         }
         mSoundId = mSoundPool.load(getApplicationContext(), R.raw.sound, 1);
         mSoundId2 = mSoundPool.load(getApplicationContext(), R.raw.beep, 5);
@@ -140,7 +140,7 @@ public class StepTwoActivity extends Activity implements Runnable {
                 right.setabX(curX);
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN: {
-                    //    mSoundPool.play(mSoundId, vol, vol, 1, 0, 1);
+                        mSoundPool.play(mSoundId, vol, vol, 1, 0, 1);
                         view1.setBackgroundColor(Color.LTGRAY);
                         if (flag2 == 2) {
                             int time_r1 = (int) System.currentTimeMillis();

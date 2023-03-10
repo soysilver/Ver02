@@ -1,6 +1,14 @@
 package com.example.ver02;
 
+import static java.lang.Integer.parseInt;
+
 import android.app.Application;
+
+import java.sql.Array;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Random;
 
 public class GlobalVar extends Application {
     String ID="실패";
@@ -23,6 +31,61 @@ public class GlobalVar extends Application {
     int mean = 60;
     int per = 60;
 
+    int rand[][]= new int [5][3];
+
+    public void setMap() {
+        Random r = new Random(parseInt(ID));
+        rand[0][0]= r.nextInt(100);
+        rand[0][1]= 80;
+        rand[0][2]= 120;
+        rand[1][0]= r.nextInt(100);
+        rand[1][1]= 90;
+        rand[1][2]= 110;
+        rand[2][0]= r.nextInt(100);
+        rand[2][1]= 100;
+        rand[2][2]= 100;
+        rand[3][0]= r.nextInt(100);
+        rand[3][1]= 110;
+        rand[3][2]= 90;
+        rand[4][0]= r.nextInt(100);
+        rand[4][1]= 120;
+        rand[4][2]= 80;
+
+        for(int i=0; i<5; i++){
+            for(int j=0; j<2; j++){
+                System.out.println(rand[i][j]);
+            }
+        }
+
+        for(int i=0; i<5; i++){
+            for(int j=0; j<2; j++){
+                if (rand[i][0]<rand[j][0]){
+                    int a = rand[i][0];
+                    int b = rand[i][1];
+                    int c = rand[i][2];
+                    rand[i][0]=rand[j][0];
+                    rand[i][1]=rand[j][1];
+                    rand[i][2]=rand[j][2];
+                    rand[j][0]=a;
+                    rand[j][1]=b;
+                    rand[j][2]=c;
+                    System.out.println(a+" "+b);
+                }
+            }
+        }
+
+        for(int i=0; i<5; i++){
+            for(int j=0; j<3; j++){
+                System.out.println(rand[i][j]);
+            }
+        }
+
+    }
+
+
+    public int getMap(int i, int j){
+        return rand[i][j];
+    }
 
     public int getTempo() {
         System.out.println(Tempo);

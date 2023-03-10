@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 ID =  PID[position];
                 ( (GlobalVar) getApplication() ).setID(PID[position]);
+                ( (GlobalVar) getApplication() ).setMap();
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
