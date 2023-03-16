@@ -18,7 +18,8 @@
     <string name="start">시작하기</string>
     <string name="next">다음</string>
     <string name="step_end">메뉴</string>
-    <string name="step_return">sub-task</string>
+    <string name="step_return">다시하기</string>
+    <string name="step_sub">sub-task</string>
 
     <string name="ing_M">메뉴</string>
     <!--    -->

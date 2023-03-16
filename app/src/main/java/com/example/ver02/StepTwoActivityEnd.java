@@ -22,7 +22,7 @@ public class StepTwoActivityEnd extends Activity {
         setContentView(R.layout.activity_step_two_end);
         Button button = (Button) findViewById(R.id.menu_button);
         Button button2 = (Button) findViewById(R.id.return_btn);
-
+        Button button3 = (Button) findViewById(R.id.subtask_btn);
 
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -32,6 +32,17 @@ public class StepTwoActivityEnd extends Activity {
         });
 
         button2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                ads();
+                Intent intent = new Intent(getApplicationContext(), StepTwoActivity.class);
+                intent.putExtra("factor", factor);
+                loop++;
+                intent.putExtra("loop", loop);
+                startActivity(intent);
+            }
+        });
+
+        button3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 ads();
                 Log.e("eLoop","int"+loop);

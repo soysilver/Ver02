@@ -20,7 +20,7 @@ public class StepThreeActivityEnd extends Activity {
         setContentView(R.layout.activity_step_three_end);
         Button button = (Button) findViewById(R.id.menu_button);
         Button button2 = (Button) findViewById(R.id.return_btn);
-
+        Button button3 = (Button) findViewById(R.id.subtask_btn);
 
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -30,6 +30,17 @@ public class StepThreeActivityEnd extends Activity {
         });
 
         button2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                ads();
+                Intent intent = new Intent(getApplicationContext(), StepThreeActivity.class);
+                //    intent.putExtra("factor", factor);
+                loop++;
+                intent.putExtra("loop", loop);
+                startActivity(intent);
+            }
+        });
+
+        button3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 ads();
                 Intent intent = new Intent(getApplicationContext(), StepThreeActivityBefore.class);
