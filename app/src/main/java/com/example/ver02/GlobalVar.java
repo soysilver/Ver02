@@ -3,6 +3,9 @@ package com.example.ver02;
 import static java.lang.Integer.parseInt;
 
 import android.app.Application;
+import android.media.AudioManager;
+import android.media.SoundPool;
+import android.os.Build;
 
 import java.sql.Array;
 import java.util.ArrayList;
@@ -17,8 +20,29 @@ public class GlobalVar extends Application {
     int Hand = 0;
     int Tempo = 60;
 
+    SoundPool mSoundPool;
+    int mSoundId;
+    int mSoundId2;
+
     public String getTitle() {
         return title;
+    }
+
+    public void sound(){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            mSoundPool = new SoundPool.Builder()
+                    .setMaxStreams(1)
+                    .build();
+        } else {
+            mSoundPool = new SoundPool(2, AudioManager.STREAM_MUSIC, 1);
+        }
+        mSoundId = mSoundPool.load(getApplicationContext(), R.raw.sound, 1);
+        mSoundId2 = mSoundPool.load(getApplicationContext(), R.raw.beep, 5);
+
+    }
+
+    public void goBeep(float vol){
+        mSoundPool.play(mSoundId2, vol, vol, 5, 0, 1);
     }
 
     public void setTitle(String title) {

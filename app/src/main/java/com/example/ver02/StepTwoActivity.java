@@ -32,11 +32,11 @@ public class StepTwoActivity extends Activity implements Runnable {
     int sound_num = 0;
     SoundPool mSoundPool;
     int mSoundId;
-    int mSoundId2;
+   int mSoundId2;
     int duration;
     int factor = 100;
 
-    float vol = 1;
+    float vol = 0;
     int flag2 = 0;
 
     public void onWindowFocusChanged(boolean hasFocus) {
@@ -86,7 +86,7 @@ public class StepTwoActivity extends Activity implements Runnable {
                 int time_r2 = (int)System.currentTimeMillis();
                 right.setTime2(time_r2);
                 flag2 = 2;
-
+           //     vol = 1;
             }
         };
 
@@ -140,8 +140,8 @@ public class StepTwoActivity extends Activity implements Runnable {
                 right.setabX(curX);
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN: {
-                        mSoundPool.play(mSoundId, vol, vol, 1, 0, 1);
-                        view1.setBackgroundColor(Color.LTGRAY);
+ //                       mSoundPool.play(mSoundId, vol, vol, 1, 0, 1);
+ //                       view1.setBackgroundColor(Color.LTGRAY);
                         if (flag2 == 2) {
                             int time_r1 = (int) System.currentTimeMillis();
                             right.setTime1(time_r1);
@@ -173,7 +173,7 @@ public class StepTwoActivity extends Activity implements Runnable {
                         return true;
                     }
                     case MotionEvent.ACTION_UP: {
-                        view1.setBackgroundColor(Color.TRANSPARENT);
+ //                       view1.setBackgroundColor(Color.TRANSPARENT);
                         right.changeTime();
                         return false;
                     }
@@ -210,17 +210,21 @@ public class StepTwoActivity extends Activity implements Runnable {
         //right.putSound((int)System.currentTimeMillis(),duration);
         try {
             right.initSound((int)System.currentTimeMillis());
-            Thread.sleep(duration);
             while(true) {
-                Thread.sleep(duration);
                 if (flag == 1) break;
-                mSoundPool.play(mSoundId2, 1, 1, 5, 0, 1);
+                //nn
                 if (flag2 == 2){
                     right.setStatus("sound");
                     right.putSound((int)System.currentTimeMillis());
                     right.writeSound((int)System.currentTimeMillis(), ( (GlobalVar) getApplication() ).getTitle());
                     sound_num++;
                 }
+                ( (GlobalVar) getApplication() ).goBeep(vol);
+            //    mSoundPool.play(mSoundId2, vol, vol, 5, 0, 1);
+                vol = 1;
+
+                Thread.sleep(duration);
+
             }
         } catch (InterruptedException e) {
             e.printStackTrace();

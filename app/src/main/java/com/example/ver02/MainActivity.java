@@ -158,6 +158,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("성별", Gender);
                 intent.putExtra("손", Hand);
 
+                ( (GlobalVar) getApplication() ).sound();
                 ( (GlobalVar) getApplication() ).setTitle(dateFormat2.format(date)+"_P"+ID+".txt");
 
 

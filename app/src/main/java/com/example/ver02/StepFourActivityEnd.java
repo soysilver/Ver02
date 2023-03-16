@@ -32,7 +32,7 @@ public class StepFourActivityEnd extends Activity {
         button2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 ads();
-                Intent intent = new Intent(getApplicationContext(), StepThreeActivityBefore.class);
+                Intent intent = new Intent(getApplicationContext(), StepFourActivityBefore.class);
             //    intent.putExtra("factor", factor);
                 loop++;
                 intent.putExtra("loop", loop);

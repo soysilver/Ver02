@@ -35,6 +35,8 @@ public class StepThreeActivity extends Activity  implements Runnable {
     int factor = 100;
     int Hand=0;
     int flag2 = 0;
+
+    float vol = 0;
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
@@ -147,7 +149,7 @@ public class StepThreeActivity extends Activity  implements Runnable {
                   //      mSoundPool.play(mSoundId, 1, 1, 1, 0, 1);
                         if (flag2 ==2) {
 
-                            view1.setBackgroundColor(Color.LTGRAY);
+ //                           view1.setBackgroundColor(Color.LTGRAY);
                             int time_r1 = (int) System.currentTimeMillis();
                             right.setTime1(time_r1);
                             System.out.println(right.getTime());
@@ -172,7 +174,7 @@ public class StepThreeActivity extends Activity  implements Runnable {
                         return true;
                     }
                     case MotionEvent.ACTION_UP: {
-                        view1.setBackgroundColor(Color.TRANSPARENT);
+ //                       view1.setBackgroundColor(Color.TRANSPARENT);
                         right.changeTime();
                         return false;
                     }
@@ -199,7 +201,7 @@ public class StepThreeActivity extends Activity  implements Runnable {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN: {
                         if (flag2 ==2) {
-                            view2.setBackgroundColor(Color.LTGRAY);
+//                            view2.setBackgroundColor(Color.LTGRAY);
                             //   mSoundPool.play(mSoundId, 1, 1, 1, 0, 1);
                             int time_r1 = (int) System.currentTimeMillis();
                             left.setTime1(time_r1);
@@ -224,7 +226,7 @@ public class StepThreeActivity extends Activity  implements Runnable {
                         return true;
                     }
                     case MotionEvent.ACTION_UP: {
-                        view2.setBackgroundColor(Color.TRANSPARENT);
+//                        view2.setBackgroundColor(Color.TRANSPARENT);
                         left.changeTime();
                         return false;
                     }
@@ -257,10 +259,9 @@ public class StepThreeActivity extends Activity  implements Runnable {
     @Override
     public void run() {
         try {
-            Thread.sleep(duration);
+            //Thread.sleep(duration);
             while(true) {
                 if (flag == 1) break;
-                mSoundPool.play(mSoundId2, 1, 1, 1, 0, 1);
                 if (flag2 == 2) {
                     left.setStatus("soundLeft");
                     right.setStatus("soundRight");
@@ -270,6 +271,8 @@ public class StepThreeActivity extends Activity  implements Runnable {
                     right.writeSound((int) System.currentTimeMillis(), ((GlobalVar) getApplication()).getTitle());
                     sound_num++;
                 }
+                mSoundPool.play(mSoundId2, vol, vol, 5, 0, 1);
+                vol = 1;
                 Thread.sleep(duration);
             }
 
