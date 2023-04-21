@@ -25,6 +25,8 @@ public class Action extends Activity {
     int time2 = 0;
     int time = getTime();
 
+    int bpm=1;
+
     //계산용
     int stageID = 0;
     int setID = 0;
@@ -177,7 +179,7 @@ public class Action extends Activity {
                     Integer.toString(sound_num),
                     Integer.toString(arr_num),
                     Integer.toString(arr[arr_num-1]), Float.toString(abx), Float.toString(y),
-                    String.valueOf(getSum()),String.valueOf(getMean()),String.valueOf(getSortedSum()), String.valueOf(time1-Sound[arr_num -1]) };  // 3
+                    String.valueOf(getSum()),String.valueOf(getMean()),String.valueOf(getSortedSum()), String.valueOf((time1-Sound[arr_num -1])), String.valueOf((bpm - (time1-Sound[arr_num -1]))/bpm) };  // 3
             writer.writeNext(entries1);
 
             writer.close();
@@ -245,6 +247,10 @@ public class Action extends Activity {
             Sound[sound_num]=a;
         }
         sound_num++;
+    }
+
+    public void setBpm(int bpm) {
+        this.bpm = bpm;
     }
 
     public void initSound(int a){

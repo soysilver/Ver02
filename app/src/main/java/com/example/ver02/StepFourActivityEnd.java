@@ -20,7 +20,7 @@ public class StepFourActivityEnd extends Activity {
         setContentView(R.layout.activity_step_four_end);
         Button button = (Button) findViewById(R.id.menu_button);
         Button button2 = (Button) findViewById(R.id.return_btn);
-        Button button3 = (Button) findViewById(R.id.return_btn);
+        Button button3 = (Button) findViewById(R.id.subtask_btn);
 
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {

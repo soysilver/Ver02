@@ -60,6 +60,8 @@ public class StepThreeActivity extends Activity  implements Runnable {
         loop_num = b_intent.getIntExtra("loop",loop_num);
 
         duration = 600*factor/( (GlobalVar) getApplication() ).getTempo();
+        right.setBpm(duration);
+        left.setBpm(duration);
 
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, MODE_PRIVATE);
         View view1 = (View)findViewById(R.id.view1);

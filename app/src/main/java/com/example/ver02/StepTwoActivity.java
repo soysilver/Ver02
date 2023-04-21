@@ -60,6 +60,8 @@ public class StepTwoActivity extends Activity implements Runnable {
         factor = b_intent.getIntExtra("factor",100);
 
         duration = 600*factor/( (GlobalVar) getApplication() ).getTempo();
+        right.setBpm(duration);
+
 
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, MODE_PRIVATE);
         View view1 = (View)findViewById(R.id.view1);
