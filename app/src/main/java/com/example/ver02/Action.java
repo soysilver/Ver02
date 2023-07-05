@@ -179,9 +179,12 @@ public class Action extends Activity {
                     Integer.toString(sound_num),
                     Integer.toString(arr_num),
                     Integer.toString(arr[arr_num-1]), Float.toString(abx), Float.toString(y),
-                    String.valueOf(getSum()),String.valueOf(getMean()),String.valueOf(getSortedSum()), String.valueOf((time1-Sound[arr_num -1])), String.valueOf((bpm - (time1-Sound[arr_num -1]))/bpm) };  // 3
+                    String.valueOf(getSum()),String.valueOf(getMean()),String.valueOf(getSortedSum()), String.valueOf((time1-Sound[arr_num -1])), String.valueOf((double)(bpm - (time1-Sound[arr_num -1]))/bpm) };  // 3
             writer.writeNext(entries1);
 
+            System.out.println((time1-Sound[arr_num -1]));
+
+            System.out.println((bpm));
             writer.close();
 
         } catch (IOException e) {
