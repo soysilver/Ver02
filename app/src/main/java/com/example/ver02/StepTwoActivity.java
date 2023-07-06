@@ -143,7 +143,7 @@ public class StepTwoActivity extends Activity implements Runnable {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN: {
  //                       mSoundPool.play(mSoundId, vol, vol, 1, 0, 1);
- //                       view1.setBackgroundColor(Color.LTGRAY);
+                        view1.setBackgroundColor(Color.parseColor("#ffddee"));
                         if (flag2 == 2) {
                             int time_r1 = (int) System.currentTimeMillis();
                             right.setTime1(time_r1);
@@ -175,7 +175,7 @@ public class StepTwoActivity extends Activity implements Runnable {
                         return true;
                     }
                     case MotionEvent.ACTION_UP: {
- //                       view1.setBackgroundColor(Color.TRANSPARENT);
+                        view1.setBackgroundColor(Color.TRANSPARENT);
                         right.changeTime();
                         return false;
                     }

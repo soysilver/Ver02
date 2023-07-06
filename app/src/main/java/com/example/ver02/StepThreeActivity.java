@@ -151,7 +151,7 @@ public class StepThreeActivity extends Activity  implements Runnable {
                   //      mSoundPool.play(mSoundId, 1, 1, 1, 0, 1);
                         if (flag2 ==2) {
 
- //                           view1.setBackgroundColor(Color.LTGRAY);
+                            view1.setBackgroundColor(Color.parseColor("#ffddee"));
                             int time_r1 = (int) System.currentTimeMillis();
                             right.setTime1(time_r1);
                             System.out.println(right.getTime());
@@ -176,7 +176,7 @@ public class StepThreeActivity extends Activity  implements Runnable {
                         return true;
                     }
                     case MotionEvent.ACTION_UP: {
- //                       view1.setBackgroundColor(Color.TRANSPARENT);
+                        view1.setBackgroundColor(Color.TRANSPARENT);
                         right.changeTime();
                         return false;
                     }
@@ -203,7 +203,7 @@ public class StepThreeActivity extends Activity  implements Runnable {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN: {
                         if (flag2 ==2) {
-//                            view2.setBackgroundColor(Color.LTGRAY);
+                            view2.setBackgroundColor(Color.parseColor("#ffddee"));
                             //   mSoundPool.play(mSoundId, 1, 1, 1, 0, 1);
                             int time_r1 = (int) System.currentTimeMillis();
                             left.setTime1(time_r1);
@@ -228,7 +228,7 @@ public class StepThreeActivity extends Activity  implements Runnable {
                         return true;
                     }
                     case MotionEvent.ACTION_UP: {
-//                        view2.setBackgroundColor(Color.TRANSPARENT);
+                        view2.setBackgroundColor(Color.TRANSPARENT);
                         left.changeTime();
                         return false;
                     }
