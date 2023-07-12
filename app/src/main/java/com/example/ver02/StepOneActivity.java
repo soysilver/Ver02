@@ -12,6 +12,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.core.app.ActivityCompat;
@@ -47,8 +48,8 @@ public class StepOneActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_step_one_ing);
 
+
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, MODE_PRIVATE);
-        View view1 = (View)findViewById(R.id.view1);
         Button button = (Button)findViewById(R.id.musicOn);
         Button button2 = (Button)findViewById(R.id.menu);
         TextView count = (TextView)findViewById(R.id.count);
@@ -117,6 +118,57 @@ public class StepOneActivity extends Activity {
             }
         });
 
+
+        View view1 = (View)findViewById(R.id.view1);
+        ImageView imgView = (ImageView) findViewById(R.id.imageView);
+        imgView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+
+            public boolean onTouch(View view, MotionEvent event) {
+                float curX = event.getX();
+                right.setX(curX);
+                float curY = event.getY();
+                right.setY(curY);
+                right.setabX(curX);
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        mSoundPool.play(mSoundId, 1, 1, 1, 0, 1);
+                        int time_r1 = (int)System.currentTimeMillis();
+                        right.setTime1(time_r1);
+                        System.out.println(right.getTime());
+                        right.putArray();
+                        right.putSound(time_r1);
+                        right.setStatus("touch");
+                        right.writeFile1(( (GlobalVar) getApplication() ).getTitle());
+                        disp_num++;// right.getArrNum()%20;
+                        count.setText(Integer.toString(disp_num));
+
+                        if (disp_num >= 20) {
+                            disp_num = 0;
+                            loop.setText(String.valueOf(setID));
+                            ((GlobalVar) getApplication()).setTempo(right.getSum());
+                            Intent intent = new Intent(getApplicationContext(), StepOneActivityEnd.class);
+                            intent.putExtra("loop", setID);
+                            intent.putExtra("sum", right.getSum());
+                            ((GlobalVar) getApplication()).setTempo(right.getSum());
+                            ((GlobalVar) getApplication()).setSum(right.getSum());
+                            intent.putExtra("mean", right.getMean());
+                            ((GlobalVar) getApplication()).setMean(right.getMean());
+                            ((GlobalVar) getApplication()).setPer(right.getSortedSum());
+                            intent.putExtra("per", right.getSortedSum());
+                            startActivity(intent);
+                        }
+                    }
+                    case MotionEvent.ACTION_UP: {
+                        right.changeTime();
+                        return false;
+                    }
+
+                }
+                return false;
+            }
+        });
+
         view1.setOnTouchListener(new View.OnTouchListener() {
             public boolean onTouch(View v, MotionEvent event) {
               //  mSoundPool.stop(mSoundId);
@@ -155,7 +207,7 @@ public class StepOneActivity extends Activity {
                             startActivity(intent);
                         }
 
-                        return true;
+                     //   return true;
                     }
                     case MotionEvent.ACTION_UP: {
                         right.changeTime();

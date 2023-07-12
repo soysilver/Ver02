@@ -5,20 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".StepOneActivity"
-    android:background="@drawable/img">
+    android:foreground="@drawable/ripple_effect"
+    android:background="?attr/selectableItemBackground"
+    android:clickable="true"
+    >
 
 
     <View
         android:id="@+id/view1"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="#ffffff"
+        android:foreground="@drawable/ripple_effect"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent="1" />
+
 
 
 
@@ -99,11 +106,16 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:alpha="0.3"
         android:src="@drawable/img"
+        android:background="@drawable/ripple_effect"
         android:scaleType="center"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintHeight_percent="0.8"
+        app:layout_constraintWidth_percent="0.8"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
