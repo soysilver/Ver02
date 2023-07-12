@@ -15,6 +15,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.app.Application;
 
@@ -64,7 +65,8 @@ public class StepTwoActivity extends Activity implements Runnable {
 
 
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, MODE_PRIVATE);
-        View view1 = (View)findViewById(R.id.view1);
+        ImageView view1 = (ImageView) findViewById(R.id.imageView);
+        // View view1 = (View)findViewById(R.id.view1);
         Button button = (Button)findViewById(R.id.musicOn);
         Button button2 = (Button)findViewById(R.id.menu);
         TextView count = (TextView)findViewById(R.id.count);
@@ -143,7 +145,6 @@ public class StepTwoActivity extends Activity implements Runnable {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN: {
  //                       mSoundPool.play(mSoundId, vol, vol, 1, 0, 1);
-                        view1.setBackgroundColor(Color.parseColor("#ffddee"));
                         if (flag2 == 2) {
                             int time_r1 = (int) System.currentTimeMillis();
                             right.setTime1(time_r1);
@@ -172,10 +173,9 @@ public class StepTwoActivity extends Activity implements Runnable {
                             }
                         }
                         flag2 = 2;
-                        return true;
+                      //  return true;
                     }
                     case MotionEvent.ACTION_UP: {
-                        view1.setBackgroundColor(Color.TRANSPARENT);
                         right.changeTime();
                         return false;
                     }

@@ -151,7 +151,7 @@ public class StepThreeActivity extends Activity  implements Runnable {
                   //      mSoundPool.play(mSoundId, 1, 1, 1, 0, 1);
                         if (flag2 ==2) {
 
-                            view1.setBackgroundColor(Color.parseColor("#ffddee"));
+                            view1.setBackgroundColor(Color.parseColor("#bbdddd"));
                             int time_r1 = (int) System.currentTimeMillis();
                             right.setTime1(time_r1);
                             System.out.println(right.getTime());
@@ -173,7 +173,7 @@ public class StepThreeActivity extends Activity  implements Runnable {
                         }
 
                         flag2 = 2;
-                        return true;
+                        //return true;
                     }
                     case MotionEvent.ACTION_UP: {
                         view1.setBackgroundColor(Color.TRANSPARENT);
@@ -225,7 +225,7 @@ public class StepThreeActivity extends Activity  implements Runnable {
                             }
                         }
                         flag2 = 2;
-                        return true;
+                        //return true;
                     }
                     case MotionEvent.ACTION_UP: {
                         view2.setBackgroundColor(Color.TRANSPARENT);
