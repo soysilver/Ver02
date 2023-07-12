@@ -216,7 +216,7 @@ public class StepFourActivity extends Activity  implements Runnable {
                             }
                         }
                         flag2 = 2;
-                        return true;
+                      //  return true;
                     }
                     case MotionEvent.ACTION_UP: {
                         view2.setBackgroundColor(Color.TRANSPARENT);
