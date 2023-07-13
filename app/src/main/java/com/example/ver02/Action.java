@@ -31,10 +31,10 @@ public class Action extends Activity {
     int stageID = 0;
     int setID = 0;
     int BPMset = 0;
-    int[] arr = new int[40];
-    int[] Sound = new int[40];
-    int[] Touch = new int[40];
-    int[] Sorted = new int[40];
+    int[] arr = new int[100];
+    int[] Sound = new int[100];
+    int[] Touch = new int[100];
+    int[] Sorted = new int[100];
     int arr_num = 0;
     int sound_num = 0;
     int Sum = 0;
