@@ -31,21 +31,21 @@ public class StepThreeActivityBefore extends Activity {
         button5.setText(( (GlobalVar) getApplication() ).getMap(4, 2) + "%");
        // TextView T = (TextView) findViewById(R.id.textView2);
 
-        if(((GlobalVar) getApplication() ).getBtn6()!=0) {
-            button1.setBackgroundColor(Color.BLUE);
-        }
-        if(((GlobalVar) getApplication() ).getBtn7()!=0) {
-            button2.setBackgroundColor(Color.BLUE);
-        }
-        if(((GlobalVar) getApplication() ).getBtn8()!=0) {
-            button3.setBackgroundColor(Color.BLUE);
-        }
-        if(((GlobalVar) getApplication() ).getBtn9()!=0) {
-            button4.setBackgroundColor(Color.BLUE);
-        }
-        if(((GlobalVar) getApplication() ).getBtn10()!=0) {
-            button5.setBackgroundColor(Color.BLUE);
-        }
+//        if(((GlobalVar) getApplication() ).getBtn6()!=0) {
+//            button1.setBackgroundColor(Color.BLUE);
+//        }
+//        if(((GlobalVar) getApplication() ).getBtn7()!=0) {
+//            button2.setBackgroundColor(Color.BLUE);
+//        }
+//        if(((GlobalVar) getApplication() ).getBtn8()!=0) {
+//            button3.setBackgroundColor(Color.BLUE);
+//        }
+//        if(((GlobalVar) getApplication() ).getBtn9()!=0) {
+//            button4.setBackgroundColor(Color.BLUE);
+//        }
+//        if(((GlobalVar) getApplication() ).getBtn10()!=0) {
+//            button5.setBackgroundColor(Color.BLUE);
+//        }
 
         Intent b_intent = getIntent();
         loop = b_intent.getIntExtra("loop",loop);
@@ -68,49 +68,100 @@ public class StepThreeActivityBefore extends Activity {
         button1.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
-                ((GlobalVar) getApplication() ).setBtn6(1);
-                button1.setBackgroundColor(Color.BLUE);
-                int buffer = ( (GlobalVar) getApplication() ).getMap(0, 1);
-                setFlag(buffer);
-                startIntent(flag);
+                if(((GlobalVar) getApplication() ).getBtn6()==0) {
+                    ((GlobalVar) getApplication() ).setBtn6(1);
+                    button1.setBackgroundColor(Color.RED);
+                    int buffer = ( (GlobalVar) getApplication() ).getMap(0, 1);
+                    setFlag(buffer);
+                    System.out.println(flag);
+                    //     setFlag(80);
+                    startIntent(flag);
+                }
+                else if(((GlobalVar) getApplication() ).getBtn6()!=0&&((GlobalVar) getApplication() ).getBtn7()==0){
+                    ((GlobalVar) getApplication() ).setBtn7(1);
+                    button1.setBackgroundColor(Color.YELLOW);
+                    int buffer = ( (GlobalVar) getApplication() ).getMap(1, 1);
+                    setFlag(buffer);
+                    System.out.println(flag);
+                    startIntent(flag);
+                }
+                else if(((GlobalVar) getApplication() ).getBtn7()!=0&&((GlobalVar) getApplication() ).getBtn8()==0){
+                    ((GlobalVar) getApplication() ).setBtn8(1);
+                    button1.setBackgroundColor(Color.GREEN);
+                    int buffer = ( (GlobalVar) getApplication() ).getMap(2, 1);
+                    setFlag(buffer);
+                    System.out.println(flag);
+                    startIntent(flag);
+                }
+                else if(((GlobalVar) getApplication() ).getBtn8()!=0&&((GlobalVar) getApplication() ).getBtn9()==0){
+                    ((GlobalVar) getApplication() ).setBtn9(1);
+                    button1.setBackgroundColor(Color.BLUE);
+                    int buffer = ( (GlobalVar) getApplication() ).getMap(3, 1);
+                    setFlag(buffer);
+                    System.out.println(flag);
+                    startIntent(flag);
+                }
+                else if(((GlobalVar) getApplication() ).getBtn9()!=0&&((GlobalVar) getApplication() ).getBtn10()==0){
+                    ((GlobalVar) getApplication() ).setBtn10(1);
+                    button1.setBackgroundColor(Color.BLACK);
+                    int buffer = ( (GlobalVar) getApplication() ).getMap(4, 1);
+                    button1.setText("완료");
+                    setFlag(buffer);
+                    System.out.println(flag);
+                    startIntent(flag);
+                }
+                else lastIntent();
+
+
             }
         });
-        button2.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                ((GlobalVar) getApplication() ).setBtn7(1);
-                button2.setBackgroundColor(Color.BLUE);
-                int buffer = ( (GlobalVar) getApplication() ).getMap(1, 1);
-                setFlag(buffer);
-                startIntent(flag);
-            }
-        });
-        button3.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                ((GlobalVar) getApplication() ).setBtn8(1);
-                button3.setBackgroundColor(Color.BLUE);
-                int buffer = ( (GlobalVar) getApplication() ).getMap(2, 1);
-                setFlag(buffer);
-                startIntent(flag);
-            }
-        });
-        button4.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                ((GlobalVar) getApplication() ).setBtn9(1);
-                button4.setBackgroundColor(Color.BLUE);
-                int buffer = ( (GlobalVar) getApplication() ).getMap(3, 1);
-                setFlag(buffer);
-                startIntent(flag);
-            }
-        });
-        button5.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                ((GlobalVar) getApplication() ).setBtn10(1);
-                button5.setBackgroundColor(Color.BLUE);
-                int buffer = ( (GlobalVar) getApplication() ).getMap(4, 1);
-                setFlag(buffer);
-                startIntent(flag);
-            }
-        });
+//
+//        button1.setOnClickListener(new View.OnClickListener() {
+//
+//            public void onClick(View view) {
+//                ((GlobalVar) getApplication() ).setBtn6(1);
+//                button1.setBackgroundColor(Color.BLUE);
+//                int buffer = ( (GlobalVar) getApplication() ).getMap(0, 1);
+//                setFlag(buffer);
+//                startIntent(flag);
+//            }
+//        });
+//        button2.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View view) {
+//                ((GlobalVar) getApplication() ).setBtn7(1);
+//                button2.setBackgroundColor(Color.BLUE);
+//                int buffer = ( (GlobalVar) getApplication() ).getMap(1, 1);
+//                setFlag(buffer);
+//                startIntent(flag);
+//            }
+//        });
+//        button3.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View view) {
+//                ((GlobalVar) getApplication() ).setBtn8(1);
+//                button3.setBackgroundColor(Color.BLUE);
+//                int buffer = ( (GlobalVar) getApplication() ).getMap(2, 1);
+//                setFlag(buffer);
+//                startIntent(flag);
+//            }
+//        });
+//        button4.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View view) {
+//                ((GlobalVar) getApplication() ).setBtn9(1);
+//                button4.setBackgroundColor(Color.BLUE);
+//                int buffer = ( (GlobalVar) getApplication() ).getMap(3, 1);
+//                setFlag(buffer);
+//                startIntent(flag);
+//            }
+//        });
+//        button5.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View view) {
+//                ((GlobalVar) getApplication() ).setBtn10(1);
+//                button5.setBackgroundColor(Color.BLUE);
+//                int buffer = ( (GlobalVar) getApplication() ).getMap(4, 1);
+//                setFlag(buffer);
+//                startIntent(flag);
+//            }
+//        });
     }
 
     public void setFlag(int flag){
@@ -120,6 +171,17 @@ public class StepThreeActivityBefore extends Activity {
     public void startIntent(int a){
         Intent intent = new Intent(getApplicationContext(), StepThreeActivity.class);
         intent.putExtra("factor", a);
+        intent.putExtra("loop", loop);
+        startActivity(intent);
+    }
+    public void lastIntent(){
+        Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
+        ((GlobalVar) getApplication() ).setBtn6(0);
+        ((GlobalVar) getApplication() ).setBtn7(0);
+        ((GlobalVar) getApplication() ).setBtn8(0);
+        ((GlobalVar) getApplication() ).setBtn9(0);
+        ((GlobalVar) getApplication() ).setBtn10(0);
+
         intent.putExtra("loop", loop);
         startActivity(intent);
     }
