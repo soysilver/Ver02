@@ -18,6 +18,7 @@ public class StepFourActivityBefore extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose3);
         Button button1 = (Button) findViewById(R.id.button);
+        /*
         Button button2 = (Button) findViewById(R.id.button2);
         Button button3 = (Button) findViewById(R.id.button3);
         Button button4 = (Button) findViewById(R.id.button4);
@@ -28,6 +29,11 @@ public class StepFourActivityBefore extends Activity {
         button3.setText(( (GlobalVar) getApplication() ).getMap(2, 2) + "%");
         button4.setText(( (GlobalVar) getApplication() ).getMap(3, 2) + "%");
         button5.setText(( (GlobalVar) getApplication() ).getMap(4, 2) + "%");
+
+
+        if(((GlobalVar) getApplication() ).getBtn15()!=0) {
+            button1.setText("메뉴로 돌아가기");
+        }
 
         if(((GlobalVar) getApplication() ).getBtn11()!=0) {
             button1.setBackgroundColor(Color.BLUE);
@@ -44,6 +50,8 @@ public class StepFourActivityBefore extends Activity {
         if(((GlobalVar) getApplication() ).getBtn15()!=0) {
             button5.setBackgroundColor(Color.BLUE);
         }
+        */
+
        // TextView T = (TextView) findViewById(R.id.textView2);
 
         Intent b_intent = getIntent();
@@ -54,62 +62,111 @@ public class StepFourActivityBefore extends Activity {
             public void onTick(long millisUntilFinished) {
                 int num = (int) (millisUntilFinished / 1000);
        //         T.setText(Integer.toString(num + 1));
-
             }
-
             @Override
             public void onFinish() {
                 startIntent(flag);
             }
         };
 
-
         button1.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
-                ((GlobalVar) getApplication() ).setBtn11(1);
-                button1.setBackgroundColor(Color.BLUE);
-                int buffer = ( (GlobalVar) getApplication() ).getMap(0, 1);
-                setFlag(buffer);
-                startIntent(flag);
+                if(((GlobalVar) getApplication() ).getBtn1()==0) {
+                    ((GlobalVar) getApplication() ).setBtn1(1);
+                    button1.setBackgroundColor(Color.RED);
+                    int buffer = ( (GlobalVar) getApplication() ).getMap(0, 1);
+                    setFlag(buffer);
+                    System.out.println(flag);
+                    //     setFlag(80);
+                    startIntent(flag);
+                }
+                else if(((GlobalVar) getApplication() ).getBtn1()!=0&&((GlobalVar) getApplication() ).getBtn2()==0){
+                    ((GlobalVar) getApplication() ).setBtn2(1);
+                    button1.setBackgroundColor(Color.YELLOW);
+                    int buffer = ( (GlobalVar) getApplication() ).getMap(1, 1);
+                    setFlag(buffer);
+                    System.out.println(flag);
+                    startIntent(flag);
+                }
+                else if(((GlobalVar) getApplication() ).getBtn2()!=0&&((GlobalVar) getApplication() ).getBtn3()==0){
+                    ((GlobalVar) getApplication() ).setBtn3(1);
+                    button1.setBackgroundColor(Color.GREEN);
+                    int buffer = ( (GlobalVar) getApplication() ).getMap(2, 1);
+                    setFlag(buffer);
+                    System.out.println(flag);
+                    startIntent(flag);
+                }
+                else if(((GlobalVar) getApplication() ).getBtn3()!=0&&((GlobalVar) getApplication() ).getBtn4()==0){
+                    ((GlobalVar) getApplication() ).setBtn4(1);
+                    button1.setBackgroundColor(Color.BLUE);
+                    int buffer = ( (GlobalVar) getApplication() ).getMap(3, 1);
+                    setFlag(buffer);
+                    System.out.println(flag);
+                    startIntent(flag);
+                }
+                else if(((GlobalVar) getApplication() ).getBtn4()!=0&&((GlobalVar) getApplication() ).getBtn5()==0){
+                    ((GlobalVar) getApplication() ).setBtn5(1);
+                    button1.setBackgroundColor(Color.BLACK);
+                    int buffer = ( (GlobalVar) getApplication() ).getMap(4, 1);
+                    button1.setText("완료");
+                    setFlag(buffer);
+                    System.out.println(flag);
+                    startIntent(flag);
+                }
+                else lastIntent();
+
+
             }
         });
-        button2.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                ((GlobalVar) getApplication() ).setBtn12(1);
-                    button2.setBackgroundColor(Color.BLUE);
-                int buffer = ( (GlobalVar) getApplication() ).getMap(1, 1);
-                setFlag(buffer);
-                startIntent(flag);
-            }
-        });
-        button3.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                ((GlobalVar) getApplication() ).setBtn13(1);
-                button3.setBackgroundColor(Color.BLUE);
-                int buffer = ( (GlobalVar) getApplication() ).getMap(2, 1);
-                setFlag(buffer);
-                startIntent(flag);
-            }
-        });
-        button4.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                ((GlobalVar) getApplication() ).setBtn14(1);
-                button4.setBackgroundColor(Color.BLUE);
-                int buffer = ( (GlobalVar) getApplication() ).getMap(3, 1);
-                setFlag(buffer);
-                startIntent(flag);
-            }
-        });
-        button5.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                ((GlobalVar) getApplication() ).setBtn15(1);
-                    button5.setBackgroundColor(Color.BLUE);
-                int buffer = ( (GlobalVar) getApplication() ).getMap(4, 1);
-                setFlag(buffer);
-                startIntent(flag);
-            }
-        });
+
+//
+//        button1.setOnClickListener(new View.OnClickListener() {
+//
+//            public void onClick(View view) {
+//                ((GlobalVar) getApplication() ).setBtn11(1);
+//                button1.setBackgroundColor(Color.BLUE);
+//                int buffer = ( (GlobalVar) getApplication() ).getMap(0, 1);
+//                setFlag(buffer);
+//                startIntent(flag);
+//            }
+//        });
+//        button2.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View view) {
+//                ((GlobalVar) getApplication() ).setBtn12(1);
+//                    button2.setBackgroundColor(Color.BLUE);
+//                int buffer = ( (GlobalVar) getApplication() ).getMap(1, 1);
+//                setFlag(buffer);
+//                startIntent(flag);
+//            }
+//        });
+//        button3.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View view) {
+//                ((GlobalVar) getApplication() ).setBtn13(1);
+//                button3.setBackgroundColor(Color.BLUE);
+//                int buffer = ( (GlobalVar) getApplication() ).getMap(2, 1);
+//                setFlag(buffer);
+//                startIntent(flag);
+//            }
+//        });
+//        button4.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View view) {
+//                ((GlobalVar) getApplication() ).setBtn14(1);
+//                button4.setBackgroundColor(Color.BLUE);
+//                int buffer = ( (GlobalVar) getApplication() ).getMap(3, 1);
+//                setFlag(buffer);
+//                startIntent(flag);
+//            }
+//        });
+//        button5.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View view) {
+//                ((GlobalVar) getApplication() ).setBtn15(1);
+//                    button5.setBackgroundColor(Color.BLUE);
+//                int buffer = ( (GlobalVar) getApplication() ).getMap(4, 1);
+//                setFlag(buffer);
+//                startIntent(flag);
+//            }
+//        });
     }
 
     public void setFlag(int flag){
@@ -119,6 +176,17 @@ public class StepFourActivityBefore extends Activity {
     public void startIntent(int a){
         Intent intent = new Intent(getApplicationContext(), StepFourActivity.class);
         intent.putExtra("factor", a);
+        intent.putExtra("loop", loop);
+        startActivity(intent);
+    }
+    public void lastIntent(){
+        Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
+        ((GlobalVar) getApplication() ).setBtn11(0);
+        ((GlobalVar) getApplication() ).setBtn12(0);
+        ((GlobalVar) getApplication() ).setBtn13(0);
+        ((GlobalVar) getApplication() ).setBtn14(0);
+        ((GlobalVar) getApplication() ).setBtn15(0);
+
         intent.putExtra("loop", loop);
         startActivity(intent);
     }
