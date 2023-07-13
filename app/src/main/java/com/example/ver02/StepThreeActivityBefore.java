@@ -19,6 +19,7 @@ public class StepThreeActivityBefore extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose2);
         Button button1 = (Button) findViewById(R.id.button);
+        /*
         Button button2 = (Button) findViewById(R.id.button2);
         Button button3 = (Button) findViewById(R.id.button3);
         Button button4 = (Button) findViewById(R.id.button4);
@@ -29,6 +30,7 @@ public class StepThreeActivityBefore extends Activity {
         button3.setText(( (GlobalVar) getApplication() ).getMap(2, 2) + "%");
         button4.setText(( (GlobalVar) getApplication() ).getMap(3, 2) + "%");
         button5.setText(( (GlobalVar) getApplication() ).getMap(4, 2) + "%");
+       */
        // TextView T = (TextView) findViewById(R.id.textView2);
 
 //        if(((GlobalVar) getApplication() ).getBtn6()!=0) {
