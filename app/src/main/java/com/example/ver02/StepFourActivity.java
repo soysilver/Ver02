@@ -75,7 +75,8 @@ public class StepFourActivity extends Activity  implements Runnable {
             public void onTick(long millisUntilFinished) {
                 getWindow().addFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
                 int num = (int) (millisUntilFinished / 1000);
-                ctd.setText(Integer.toString(num + 1));
+                //ctd.setText(Integer.toString(num + 1));
+                ctd.setText("준비되었을 때 시작하세요");
 
             }
 
