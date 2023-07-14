@@ -262,6 +262,11 @@ public class Action extends Activity {
         }
     }
 
+    public void initSoundNum(){
+            sound_num=0;
+
+    }
+
     public void putSound(int a, int b){
         for (int  i=0; i<40; i++){
             Sound[i]=a+b*i;

@@ -69,8 +69,8 @@ public class StepThreeActivity extends Activity  implements Runnable {
         View view2 = (View)findViewById(R.id.view2);
         Button button = (Button)findViewById(R.id.musicOn);
         Button button2 = (Button)findViewById(R.id.menu);
-        TextView count = (TextView)findViewById(R.id.count);
-        TextView count2 = (TextView)findViewById(R.id.count2);
+    //    TextView count = (TextView)findViewById(R.id.count);
+    //    TextView count2 = (TextView)findViewById(R.id.count2);
         TextView loop = (TextView)findViewById(R.id.loop);
         loop.setText(String.valueOf(loop_num));
         TextView ctd = (TextView)findViewById(R.id.textView4);
@@ -130,8 +130,10 @@ public class StepThreeActivity extends Activity  implements Runnable {
                 disp_num2=right.getArrNum();
                 loop_num++;
                 sound_num=0;
-                count.setText(String.valueOf(disp_num1));
-                count2.setText(String.valueOf(disp_num2));
+                System.out.println("오른쪽"+disp_num1);
+                System.out.println("왼쪽"+disp_num2);
+            //    count.setText(String.valueOf(disp_num1));
+            //    count2.setText(String.valueOf(disp_num2));
 
                 loop.setText(String.valueOf(loop_num));
                 int time_r2 = (int)System.currentTimeMillis();
@@ -165,8 +167,8 @@ public class StepThreeActivity extends Activity  implements Runnable {
                             right.setStatus("touchRight");
                             right.writeFile1(((GlobalVar) getApplication()).getTitle());
                             disp_num1++;// right.getArrNum()%20;
-                            count.setText(Integer.toString(disp_num1));
-
+                           // count.setText(Integer.toString(disp_num1));
+                            System.out.println("오른쪽"+disp_num1);
                             if (disp_num1+disp_num2 >= 80) {
                                 disp_num1 = 0;
                                 disp_num2 = 0;
@@ -221,8 +223,8 @@ public class StepThreeActivity extends Activity  implements Runnable {
                             left.setStatus("touchLeft");
                             left.writeFile1(((GlobalVar) getApplication()).getTitle());
                             disp_num2++;// right.getArrNum()%20;
-                            count2.setText(Integer.toString(disp_num2));
-
+                          //  count2.setText(Integer.toString(disp_num2));
+                            System.out.println("왼쪽"+disp_num2);
                             if (disp_num1+disp_num2 >= 80) {
                                 disp_num1 = 0;
                                 disp_num2 = 0;

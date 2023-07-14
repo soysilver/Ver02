@@ -39,7 +39,7 @@ public class StepTwoActivity extends Activity implements Runnable {
 
     float vol = 0;
     int flag2 = 0;
-
+    int only20 = 0;
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
         if (hasFocus) {
@@ -69,7 +69,7 @@ public class StepTwoActivity extends Activity implements Runnable {
         // View view1 = (View)findViewById(R.id.view1);
         Button button = (Button)findViewById(R.id.musicOn);
         Button button2 = (Button)findViewById(R.id.menu);
-        TextView count = (TextView)findViewById(R.id.count);
+   //     TextView count = (TextView)findViewById(R.id.count);
         TextView loop = (TextView)findViewById(R.id.loop);
         loop.setText(String.valueOf(loop_num));
         TextView ctd = (TextView)findViewById(R.id.textView4);
@@ -79,8 +79,8 @@ public class StepTwoActivity extends Activity implements Runnable {
             public void onTick(long millisUntilFinished) {
                 getWindow().addFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
                 int num = (int) (millisUntilFinished / 1000);
-                ctd.setText(Integer.toString(num + 1));
-
+                //ctd.setText(Integer.toString(num + 1));
+                ctd.setText("준비되었을 때 시작하세요");
             }
 
             @Override
@@ -122,10 +122,13 @@ public class StepTwoActivity extends Activity implements Runnable {
                 disp_num=right.getArrNum();
                 loop_num++;
                 sound_num=0;
-                count.setText(String.valueOf(disp_num));
+                right.initSoundNum();
+                // count.setText(String.valueOf(disp_num));
                 loop.setText(String.valueOf(loop_num));
                 int time_r2 = (int)System.currentTimeMillis();
                 right.setTime2(time_r2);
+                if (only20==1) only20 =0;
+                if (only20==0) only20=1;
                 return false;
             }
         });
@@ -154,7 +157,8 @@ public class StepTwoActivity extends Activity implements Runnable {
                             right.setStatus("touch");
                             right.writeFile1(((GlobalVar) getApplication()).getTitle());
                             disp_num++;// right.getArrNum()%20;
-                            count.setText(Integer.toString(disp_num));
+                            //count.setText(Integer.toString(disp_num));
+                            System.out.println(disp_num);
 
                             Log.v("test", "kkkkkk");
                             if (disp_num >= 20) {
@@ -224,7 +228,7 @@ public class StepTwoActivity extends Activity implements Runnable {
                 ( (GlobalVar) getApplication() ).goBeep(vol);
             //    mSoundPool.play(mSoundId2, vol, vol, 5, 0, 1);
                 vol = 1;
-
+                if (sound_num > 20 && only20==0) vol = 0;
                 Thread.sleep(duration);
 
             }
