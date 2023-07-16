@@ -151,7 +151,7 @@ public class StepTwoActivity extends Activity implements Runnable {
                         if (flag2 == 2) {
                             int time_r1 = (int) System.currentTimeMillis();
                             right.setTime1(time_r1);
-                            System.out.println(right.getTime());
+                      //      System.out.println(right.getTime());
                             right.setHand(1);
                             right.putArray();
                             right.setStatus("touch");
@@ -160,19 +160,19 @@ public class StepTwoActivity extends Activity implements Runnable {
                             //count.setText(Integer.toString(disp_num));
                             System.out.println(disp_num);
 
-                            Log.v("test", "kkkkkk");
-                            if (disp_num >= 20) {
-                                Log.v("test", "innnnn");
+                      //      Log.v("test", "kkkkkk");
+                            if (disp_num >= 40) {
+                        //        Log.v("test", "innnnn");
                                 disp_num = 0;
                                 loop.setText(String.valueOf(loop_num));
                                 flag = 1;
                                 Intent intent = new Intent(getApplicationContext(), StepTwoActivityEnd.class);
 
-                                Log.i("loop", "num__" + loop_num);
-                                Log.i("intent____", "intent_" + intent);
+                          //      Log.i("loop", "num__" + loop_num);
+                          //      Log.i("intent____", "intent_" + intent);
 
-                                intent.putExtra("loop", loop_num);
-                                intent.putExtra("factor", factor);
+                         //       intent.putExtra("loop", loop_num);
+                         //       intent.putExtra("factor", factor);
                                 startActivity(intent);
                             }
                         }
@@ -228,7 +228,7 @@ public class StepTwoActivity extends Activity implements Runnable {
                 ( (GlobalVar) getApplication() ).goBeep(vol);
             //    mSoundPool.play(mSoundId2, vol, vol, 5, 0, 1);
                 vol = 1;
-                if (sound_num > 20 && only20==0) vol = 0;
+                if (disp_num >= 20 && only20==0) vol = 0;
                 Thread.sleep(duration);
 
             }

@@ -132,7 +132,7 @@
         style="@style/step_1_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="3"
+        android:text="준비되었을 때 시작하세요"
         tools:layout_editor_absoluteX="356dp"
         tools:layout_editor_absoluteY="367dp"
         app:layout_constraintTop_toTopOf="parent"

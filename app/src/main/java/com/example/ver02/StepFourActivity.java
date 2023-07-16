@@ -276,7 +276,7 @@ public class StepFourActivity extends Activity  implements Runnable {
                 }
                 mSoundPool.play(mSoundId2, vol, vol, 5, 0, 1);
                 vol = 1;
-                if (sound_num > 20) vol = 0;
+                if (disp_num1+disp_num2 > 20) vol = 0;
                 Thread.sleep(duration);
             }
         } catch (InterruptedException e) {
