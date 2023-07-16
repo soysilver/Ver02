@@ -127,6 +127,7 @@ public class StepTwoActivity extends Activity implements Runnable {
                 loop.setText(String.valueOf(loop_num));
                 int time_r2 = (int)System.currentTimeMillis();
                 right.setTime2(time_r2);
+                flag=0;
                 if (only20==1) only20 =0;
                 if (only20==0) only20=1;
                 return false;
@@ -147,6 +148,7 @@ public class StepTwoActivity extends Activity implements Runnable {
                 right.setabX(curX);
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN: {
+                        flag2 = 2;
  //                       mSoundPool.play(mSoundId, vol, vol, 1, 0, 1);
                         if (flag2 == 2) {
                             int time_r1 = (int) System.currentTimeMillis();
@@ -171,12 +173,12 @@ public class StepTwoActivity extends Activity implements Runnable {
                           //      Log.i("loop", "num__" + loop_num);
                           //      Log.i("intent____", "intent_" + intent);
 
-                         //       intent.putExtra("loop", loop_num);
-                         //       intent.putExtra("factor", factor);
+                                intent.putExtra("loop", loop_num);
+                                intent.putExtra("factor", factor);
                                 startActivity(intent);
                             }
                         }
-                        flag2 = 2;
+
                       //  return true;
                     }
                     case MotionEvent.ACTION_UP: {
@@ -228,7 +230,7 @@ public class StepTwoActivity extends Activity implements Runnable {
                 ( (GlobalVar) getApplication() ).goBeep(vol);
             //    mSoundPool.play(mSoundId2, vol, vol, 5, 0, 1);
                 vol = 1;
-                if (disp_num >= 20 && only20==0) vol = 0;
+                if (disp_num > 20 && only20==0) vol = 0;
                 Thread.sleep(duration);
 
             }

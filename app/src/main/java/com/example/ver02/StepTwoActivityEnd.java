@@ -45,13 +45,13 @@ public class StepTwoActivityEnd extends Activity {
         button3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 ads();
-                Log.e("eLoop","int"+loop);
-                Log.v("iLoop","_____in____"+loop);
+//                Log.e("eLoop","int"+loop);
+  //              Log.v("iLoop","_____in____"+loop);
 
                 Intent intent = new Intent(getApplicationContext(), StepTwoActivityBefore.class);
                 intent.putExtra("factor", factor);
-                loop++;
-                Log.v("iLoop","_____in____"+loop);
+               // loop++;
+//                Log.v("iLoop","_____in____"+loop);
                 intent.putExtra("loop", loop);
                 startActivity(intent);
             }

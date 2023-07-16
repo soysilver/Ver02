@@ -45,7 +45,7 @@ public class StepThreeActivityEnd extends Activity {
                 ads();
                 Intent intent = new Intent(getApplicationContext(), StepThreeActivityBefore.class);
             //    intent.putExtra("factor", factor);
-                loop++;
+                //loop++;
                 intent.putExtra("loop", loop);
                 startActivity(intent);
             }
