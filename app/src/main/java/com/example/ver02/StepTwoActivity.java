@@ -129,7 +129,7 @@ public class StepTwoActivity extends Activity implements Runnable {
                 right.setTime2(time_r2);
                 flag=0;
                 if (only20==1) only20 =0;
-                if (only20==0) only20=1;
+                else if (only20==0) only20=1;
                 return false;
             }
         });

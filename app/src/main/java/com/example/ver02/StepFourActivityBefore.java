@@ -72,8 +72,8 @@ public class StepFourActivityBefore extends Activity {
         button1.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
-                if(((GlobalVar) getApplication() ).getBtn1()==0) {
-                    ((GlobalVar) getApplication() ).setBtn1(1);
+                if(((GlobalVar) getApplication() ).getBtn11()==0) {
+                    ((GlobalVar) getApplication() ).setBtn11(1);
                     button1.setBackgroundColor(Color.RED);
                     int buffer = ( (GlobalVar) getApplication() ).getMap(0, 1);
                     setFlag(buffer);
@@ -81,32 +81,32 @@ public class StepFourActivityBefore extends Activity {
                     //     setFlag(80);
                     startIntent(flag);
                 }
-                else if(((GlobalVar) getApplication() ).getBtn1()!=0&&((GlobalVar) getApplication() ).getBtn2()==0){
-                    ((GlobalVar) getApplication() ).setBtn2(1);
+                else if(((GlobalVar) getApplication() ).getBtn11()!=0&&((GlobalVar) getApplication() ).getBtn12()==0){
+                    ((GlobalVar) getApplication() ).setBtn12(1);
                     button1.setBackgroundColor(Color.YELLOW);
                     int buffer = ( (GlobalVar) getApplication() ).getMap(1, 1);
                     setFlag(buffer);
                     System.out.println(flag);
                     startIntent(flag);
                 }
-                else if(((GlobalVar) getApplication() ).getBtn2()!=0&&((GlobalVar) getApplication() ).getBtn3()==0){
-                    ((GlobalVar) getApplication() ).setBtn3(1);
+                else if(((GlobalVar) getApplication() ).getBtn12()!=0&&((GlobalVar) getApplication() ).getBtn13()==0){
+                    ((GlobalVar) getApplication() ).setBtn13(1);
                     button1.setBackgroundColor(Color.GREEN);
                     int buffer = ( (GlobalVar) getApplication() ).getMap(2, 1);
                     setFlag(buffer);
                     System.out.println(flag);
                     startIntent(flag);
                 }
-                else if(((GlobalVar) getApplication() ).getBtn3()!=0&&((GlobalVar) getApplication() ).getBtn4()==0){
-                    ((GlobalVar) getApplication() ).setBtn4(1);
+                else if(((GlobalVar) getApplication() ).getBtn13()!=0&&((GlobalVar) getApplication() ).getBtn14()==0){
+                    ((GlobalVar) getApplication() ).setBtn14(1);
                     button1.setBackgroundColor(Color.BLUE);
                     int buffer = ( (GlobalVar) getApplication() ).getMap(3, 1);
                     setFlag(buffer);
                     System.out.println(flag);
                     startIntent(flag);
                 }
-                else if(((GlobalVar) getApplication() ).getBtn4()!=0&&((GlobalVar) getApplication() ).getBtn5()==0){
-                    ((GlobalVar) getApplication() ).setBtn5(1);
+                else if(((GlobalVar) getApplication() ).getBtn14()!=0&&((GlobalVar) getApplication() ).getBtn15()==0){
+                    ((GlobalVar) getApplication() ).setBtn15(1);
                     button1.setBackgroundColor(Color.BLACK);
                     int buffer = ( (GlobalVar) getApplication() ).getMap(4, 1);
                     button1.setText("완료");
