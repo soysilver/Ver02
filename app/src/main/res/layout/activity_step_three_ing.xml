@@ -8,7 +8,7 @@
 
 
     <View
-        android:id="@+id/view1"
+        android:id="@+id/view2"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:background="#ffffff"
@@ -29,13 +29,13 @@
         android:layout_height="match_parent"
         android:background="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/view2"
-        app:layout_constraintLeft_toRightOf="@id/view1"
+        app:layout_constraintRight_toLeftOf="@id/view1"
+        app:layout_constraintLeft_toRightOf="@id/view2"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent="0.005"   />
 
     <View
-        android:id="@+id/view2"
+        android:id="@+id/view1"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:background="#ffffff"
