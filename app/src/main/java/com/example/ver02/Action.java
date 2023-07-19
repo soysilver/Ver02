@@ -152,7 +152,7 @@ public class Action extends Activity {
             FileWriter first = new FileWriter(file, true);
             //BufferedWriter writer = new BufferedWriter(first);
             CSVWriter writer = new CSVWriter(first);
-            String[] entries = "Date#Timestamp#PID#Age#Gender#Handness#StageID#SetID#BPM_set#Event#SignalID#TrialID#x#y#BPM_part_avg#BPM_part_median#BPM_part_middle#Gap".split("#");  // 1
+            String[] entries = "Date#Timestamp#PID#Age#Gender#Handness#StageID#SetID#BPM_set#Event#SignalID#TrialID#current_bpm#x#y#BPM_part_avg#BPM_part_median#BPM_part_middle#Gap".split("#");  // 1
             writer.writeNext(entries);  // 2
             writer.close();
 
@@ -182,9 +182,9 @@ public class Action extends Activity {
                     String.valueOf(getSum()),String.valueOf(getMean()),String.valueOf(getSortedSum()), String.valueOf((time1-Sound[arr_num -1])), String.valueOf((double)(bpm - (time1-Sound[arr_num -1]))/bpm) };  // 3
             writer.writeNext(entries1);
 
-            System.out.println((time1-Sound[arr_num -1]));
+       //     System.out.println((time1-Sound[arr_num -1]));
 
-            System.out.println((bpm));
+       //     System.out.println((bpm));
             writer.close();
 
         } catch (IOException e) {

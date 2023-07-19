@@ -19,6 +19,7 @@ public class StepThreeActivityBefore extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose2);
         Button button1 = (Button) findViewById(R.id.button);
+        ((GlobalVar) getApplication() ).sortMap(3);
         /*
         Button button2 = (Button) findViewById(R.id.button2);
         Button button3 = (Button) findViewById(R.id.button3);

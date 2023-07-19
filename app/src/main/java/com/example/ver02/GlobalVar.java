@@ -192,43 +192,93 @@ public class GlobalVar extends Application {
     }
 
 
-    int rand[][]= new int [5][3];
+    int rand[][]= new int [5][5];
 
     public void setMap() {
         Random r = new Random(parseInt(ID));
         rand[0][0]= r.nextInt(100);
         rand[0][1]= 80;
         rand[0][2]= 120;
+        rand[0][3]= r.nextInt(100);
+        rand[0][4]= r.nextInt(100);
+
         rand[1][0]= r.nextInt(100);
         rand[1][1]= 90;
         rand[1][2]= 110;
+        rand[1][3]= r.nextInt(100);
+        rand[1][4]= r.nextInt(100);
+
         rand[2][0]= r.nextInt(100);
         rand[2][1]= 100;
         rand[2][2]= 100;
+        rand[2][3]= r.nextInt(100);
+        rand[2][4]= r.nextInt(100);
+
         rand[3][0]= r.nextInt(100);
         rand[3][1]= 110;
         rand[3][2]= 90;
+        rand[3][3]= r.nextInt(100);
+        rand[3][4]= r.nextInt(100);
+
         rand[4][0]= r.nextInt(100);
         rand[4][1]= 120;
         rand[4][2]= 80;
+        rand[4][3]= r.nextInt(100);
+        rand[4][4]= r.nextInt(100);
 
         for(int i=0; i<5; i++){
-            for(int j=0; j<2; j++){
+            for(int j=0; j<5; j++){
                 if (rand[i][0]<rand[j][0]){
                     int a = rand[i][0];
                     int b = rand[i][1];
                     int c = rand[i][2];
+                    int d = rand[i][3];
+                    int e = rand[i][4];
                     rand[i][0]=rand[j][0];
                     rand[i][1]=rand[j][1];
                     rand[i][2]=rand[j][2];
+                    rand[i][3]=rand[j][3];
+                    rand[i][4]=rand[j][4];
                     rand[j][0]=a;
                     rand[j][1]=b;
                     rand[j][2]=c;
+                    rand[j][3]=d;
+                    rand[j][4]=e;
                     System.out.println(a+" "+b);
                 }
             }
         }
     }
+
+
+
+
+    public void sortMap(int num){
+        for(int i=0; i<5; i++){
+            for(int j=0; j<4; j++){
+                if (rand[i][num]<rand[j][num]){
+                    int a = rand[i][0];
+                    int b = rand[i][1];
+                    int c = rand[i][2];
+                    int d = rand[i][3];
+                    int e = rand[i][4];
+                    rand[i][0]=rand[j][0];
+                    rand[i][1]=rand[j][1];
+                    rand[i][2]=rand[j][2];
+                    rand[i][3]=rand[j][3];
+                    rand[i][4]=rand[j][4];
+                    rand[j][0]=a;
+                    rand[j][1]=b;
+                    rand[j][2]=c;
+                    rand[j][3]=d;
+                    rand[j][4]=e;
+                    System.out.println(a+" "+b);
+                }
+            }
+        }
+    }
+
+
 
 
     public int getMap(int i, int j){

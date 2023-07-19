@@ -18,6 +18,8 @@ public class StepFourActivityBefore extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose3);
         Button button1 = (Button) findViewById(R.id.button);
+        ((GlobalVar) getApplication() ).sortMap(4);
+
         /*
         Button button2 = (Button) findViewById(R.id.button2);
         Button button3 = (Button) findViewById(R.id.button3);
